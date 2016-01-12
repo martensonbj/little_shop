@@ -15,6 +15,8 @@ FactoryGirl.define do
   factory :item do
     title
     image_path "https://s-media-cache-ak0.pinimg.com/236x/ac/79/ec/ac79ecfd60f82e28cabdfb8f1dc10df4.jpg"
+    description
+    price
   end
 
   factory :category do
@@ -43,5 +45,13 @@ FactoryGirl.define do
 
   sequence :title do |n|
     "title#{n}"
+  end
+
+  sequence :price do |n|
+    1.00 + n
+  end
+
+  sequence :description do |n|
+    "description#{n}"
   end
 end
