@@ -17,3 +17,7 @@
 .grid-item {
   width: 315px;
 }
+
+.grid {
+  margin: 0 auto;
+}

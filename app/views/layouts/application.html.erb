@@ -13,14 +13,15 @@
   <body>
   <%= render partial: "layouts/navbar" %>
 
-  <div class="container">
+  <div class="container center-align">
     <%= yield %>
   </div>
 
   <script type="text/javascript">
     $('.grid').masonry({
       itemSelector: '.grid-item',
-      columnWidth: 370
+      columnWidth: 370,
+      isFitWidth: true
     });
   </script>
 
