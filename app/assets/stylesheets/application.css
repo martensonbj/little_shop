@@ -14,16 +14,6 @@
  /**= require_tree .
  *= require_self*/
 
-.flex-wrap {
- display: flex;
- flex-wrap: wrap;
-}
-
 .grid-item {
- width: 320px;
+  width: 315px;
 }
-
-/*.container,
-.grid {
- width: 1200px;
-}*/
