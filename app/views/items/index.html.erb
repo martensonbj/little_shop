@@ -1,6 +1,7 @@
 <h1>Art Index</h1>
 
 <ul>
-  <%= render partial: "item_card", locals: {target: @items}%>
-
+  <% @items.each do |item|  %>
+    <%= render partial: "shared/item_card", locals: { item: item }%>
+  <% end %>
 </ul>
