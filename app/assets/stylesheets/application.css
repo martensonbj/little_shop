@@ -13,11 +13,7 @@
  */
  /**= require_tree .
  *= require_self*/
-
- .card-sizing {
-   width: 100px;
- }
-
+ 
  .flex-wrap {
    display: flex;
    flex-wrap: wrap;
