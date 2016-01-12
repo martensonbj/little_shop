@@ -10,6 +10,15 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+ /**= require_tree .
+ *= require_self*/
+
+ .card-sizing {
+   width: 100px;
+ }
+
+ .flex-wrap {
+   display: flex;
+   flex-wrap: wrap;
+ }
