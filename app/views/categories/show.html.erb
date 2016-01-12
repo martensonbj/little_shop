@@ -1,5 +1,4 @@
 <h2> <%= @category.name %> </h2>
 <% @category.items.each do |item| %>
-  <%= image_tag item.image_path %>
-  <%= item.title %>
+  <%= render partial: "shared/item_card", locals: { item: item }%>
 <% end %>
