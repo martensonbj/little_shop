@@ -13,8 +13,12 @@ FactoryGirl.define do
   end
 
   factory :item do
+    price
+    description "This is a painting of Batman."
     title
     image_path "https://s-media-cache-ak0.pinimg.com/236x/ac/79/ec/ac79ecfd60f82e28cabdfb8f1dc10df4.jpg"
+    artist
+    category
   end
 
   factory :category do
@@ -29,7 +33,7 @@ FactoryGirl.define do
     end
   end
 
-  sequence :name do |n|
+  sequence :name, %w(a b c).cycle do |n|
     "name#{n}"
   end
 
@@ -43,5 +47,9 @@ FactoryGirl.define do
 
   sequence :title do |n|
     "title#{n}"
+  end
+
+  sequence :price do |n|
+    0 + n
   end
 end

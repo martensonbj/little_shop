@@ -1,14 +1,26 @@
+img {
+  max-width: 700px;
+}
+
+.img-small {
+  max-width: 250px;
+}
+
+.container {
+  padding-top: 20px;
+}
+
 .landing_page {
   background-image: url('bg2.jpg');
   background-size: cover;
 }
 
-.btn {
+.btn_landing_page {
   background-color: rgba(255,255,255,0.8)!important;
   height: 70px!important;
 }
 
-.btn:hover {
+.btn_landing_page:hover {
   background-color: rgba(255,255,255, 1)!important;
 }
 

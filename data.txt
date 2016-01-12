@@ -1,0 +1,21 @@
+brenna = Artist.first
+toni = Artist.create(first_name: 'Toni', last_name: 'Rib')
+taylor = Artist.create(first_name: 'Taylor', last_name: 'Moore')
+
+painting = Category.first
+photography = Category.create(name: 'Photography')
+digital = Category.create(name: 'Digital')
+
+Item.create(title: 'Paris', description: 'Oil painting of Paris and the Eiffel Tower', price: 200, image_path: 'http://paintingandframe.com/uploadpic/brent_heighton/big/april_in_paris.jpg', artist_id: 1, category_id: 1)
+Item.create(title: 'German Castle', description: 'Photograph of an awe inspiring German castle', price: 100, image_path: 'http://hotpenguin.net/wp-content/uploads/2013/10/Neuschwanstein-Germany-photography-by-wohli-45-Awe-Inspiring-Landmarks-Around-The-World.jpeg', artist_id: 1, category_id: 2)
+Item.create(title: 'Shanghai Landscape', description: 'Photograph of the TV Tower in Shanghai', price: 80, image_path: 'http://d1xejl9xcsndu9.cloudfront.net/wp-content/uploads/2013/09/Shanghai-think-636x431.jpg', artist_id: 1, category_id: 2)
+Item.create(title: 'Aurora Borealis', description: 'Photograph of the Aurora Borealis in winter', price: 150, image_path: 'http://i.space.com/images/i/000/034/748/i02/2_Northern_Lights_Milky_Way_at_Pemaquid.jpg?1385159454', artist_id: 1, category_id: 2)
+
+Item.create(title: 'Sailboat in Fall', description: 'Acrylic painting of a colorful sailboat', price: 200, image_path: 'https://dsarasais.files.wordpress.com/2013/11/victorfigol21.jpg', artist_id: 2, category_id: 1)
+Item.create(title: 'Color Explosion', description: 'Digital image of amazing colors', price: 60, image_path: 'http://shotphotos.com/wp-content/uploads/2014/04/Digital-Explosion-of-Colors-600x375.jpg', artist_id: 2, category_id: 3)
+Item.create(title: 'Flower Girl', description: 'Digital art of a woman with a flowering face', price: 150, image_path: 'http://ego-alterego.com/wp-content/uploads/2014/02/Anna-Dittmann-digital-art5.jpg', artist_id: 2, category_id: 3)
+
+Item.create(title: 'Batman', description: 'Painting of the dark knight', price: 300, image_path: 'http://www.softpainting.com/wp-content/uploads/2015/12/Batman-Painting-8.jpg', artist_id: 3, category_id: 1)
+Item.create(title: 'Aspens in the Fall', description: 'Amazing photograph of aspens in the Colorado Rockies', price: 100, image_path: 'http://ridgwaycolorado.com/wp-content/uploads/2013/05/mt-sneffels-aspens.jpg', artist_id: 3, category_id: 2)
+Item.create(title: 'The Batman Watches', description: 'Digital image of Batman watching over the city of Gotham', price: 125, image_path: 'http://ninjacrunch.com/wp-content/uploads/2012/3/3/5.jpg', artist_id: 3, category_id: 3)
+Item.create(title: 'Cheers!', description: 'Digital image of delicious cold beer', price: 30, image_path: 'http://cdn.superbwallpapers.com/wallpapers/digital-art/spilled-beer-20610-1920x1200.jpg', artist_id: 3, category_id: 3)

@@ -1,0 +1,16 @@
+<% @items_with_quantities.each do |item, quantity| %>
+  <div class="row">
+    <div class="col m4">
+      <%= image_tag item.image_path, class: 'img-small' %>
+    </div>
+    <div class="col m8 left-align">
+      <h5><%= item.title %> by <%= item.artist.first_name %> <%= item.artist.last_name %></h5>
+      <p><%= item.description %></p>
+      <p>Price: $<%= item.price %></p>
+      <p>Quantity: <%=  quantity %></p>
+    </div>
+  </div>
+
+<% end %>
+
+<h3>Total: $<%= @total %></h3>

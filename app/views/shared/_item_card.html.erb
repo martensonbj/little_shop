@@ -2,7 +2,10 @@
   <div class="card">
     <div class="card-image">
       <%= image_tag item.image_path %>
-      <span class="card-title blue-grey"><%= item.title %></span>
+    </div>
+    <div class="card-action">
+      <span class="card-title"><%= item.title %></span>
+      <%= button_to "Add to Cart", cart_items_path(item_id: item.id), class: "btn waves-effect waves-light" %>
     </div>
   </div>
 </div>
