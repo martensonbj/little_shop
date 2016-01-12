@@ -1,6 +1,6 @@
 <h1>Art Index</h1>
 
-<div class="row flex-wrap">
+<div class="grid">
   <% @items.each do |item|  %>
     <%= render partial: "shared/item_card", locals: { item: item }%>
   <% end %>
