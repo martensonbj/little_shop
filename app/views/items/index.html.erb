@@ -1,7 +1,7 @@
-<h1>Art Index</h1>
+<h2>Art Index</h2>
 
-<ul>
+<div class="grid">
   <% @items.each do |item|  %>
     <%= render partial: "shared/item_card", locals: { item: item }%>
   <% end %>
-</ul>
+</div>
