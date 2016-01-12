@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LittleShop</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+   <!-- Compiled and minified JavaScript -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+
+   <!-- Load masonry files -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.0.0/imagesloaded.pkgd.js"></script>
+  </head>
+  <body class="landing_page">
+  <%= render partial: "layouts/navbar" %>
+
+  <div class="container center-align">
+    <%= yield %>
+  </div>
+
+  <script type="text/javascript">
+    $grid = $('.grid');
+
+    $grid.imagesLoaded( function(){
+      $grid.masonry({
+        itemSelector: '.grid-item',
+        columnWidth: 370,
+        isFitWidth: true
+      });
+    });
+  </script>
+
+  </body>
+</html>
