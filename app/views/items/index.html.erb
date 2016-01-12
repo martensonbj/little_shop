@@ -1,0 +1,8 @@
+<h1>Art Index</h1>
+
+<ul>
+  <% @items.each do |item|  %>
+    <%= image_tag item.image_path %>
+    <li><%= item.title %></li>
+  <% end %>
+</ul>
