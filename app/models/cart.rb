@@ -17,7 +17,7 @@ class Cart
   end
 
   def total_price
-    item_quantities.reduce(0) do |sum, item_and_quantity|
+    item_quantities.inject(0) do |sum, item_and_quantity|
       sum + (item_and_quantity[0].price * item_and_quantity[1])
     end
   end

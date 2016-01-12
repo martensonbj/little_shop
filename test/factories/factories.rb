@@ -33,7 +33,7 @@ FactoryGirl.define do
     end
   end
 
-  sequence :name, ['a', 'b', 'c'].cycle do |n|
+  sequence :name, %w(a b c).cycle do |n|
     "name#{n}"
   end
 
@@ -52,5 +52,4 @@ FactoryGirl.define do
   sequence :price do |n|
     0 + n
   end
-
 end
