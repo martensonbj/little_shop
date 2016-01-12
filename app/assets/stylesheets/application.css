@@ -1,3 +1,44 @@
+.landing_page {
+  background-image: url('bg2.jpg');
+  background-size: cover;
+}
+
+.btn {
+  background-color: rgba(255,255,255,0.8)!important;
+  height: 70px!important;
+}
+
+.btn:hover {
+  background-color: rgba(255,255,255, 1)!important;
+}
+
+.index_button a {
+    color: #645352;
+    position: relative;
+    top: 15px;
+    font-size: 15px;
+}
+
+#create_acct_button a {
+    position: relative;
+    top: 10px;
+}
+
+.index_button {
+  position: relative;
+  top: 250px;
+}
+
+#create_acct_button {
+    height: 50px!important;
+    margin-top: 15px;
+    width: 500px;
+}
+
+#browse_cat_button {
+    margin-left: 35px;
+}
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
