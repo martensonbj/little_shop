@@ -17,6 +17,22 @@ FactoryGirl.define do
     image_path "https://s-media-cache-ak0.pinimg.com/236x/ac/79/ec/ac79ecfd60f82e28cabdfb8f1dc10df4.jpg"
   end
 
+  factory :category do
+    name
+    factory :category_with_items do
+      transient do
+        item_count 2
+      end
+      after(:create) do |category, evaluator|
+        create_list(:item, evaluator.item_count, category: category)
+      end
+    end
+  end
+
+  sequence :name do |n|
+    "name#{n}"
+  end
+
   sequence :first_name do |n|
     "firstname#{n}"
   end

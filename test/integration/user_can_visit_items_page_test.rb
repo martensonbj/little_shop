@@ -5,9 +5,8 @@ class UserCanVisitItemsPageTest < ActionDispatch::IntegrationTest
     artist = create(:artist_with_items)
     items = artist.items
     visit items_path
-
-    assert page.has_content? "title1"
-    assert page.has_content? "title2"
+    assert page.has_content? "#{items.first.title}"
+    assert page.has_content? "#{items.last.title}"
     assert page.has_css?("img[src*='#{items.first.image_path}']")
     assert page.has_css?("img[src*='#{items.last.image_path}']")
 
