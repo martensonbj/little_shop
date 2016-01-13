@@ -4,7 +4,7 @@ class UserChecksOutFromCartTest < ActionDispatch::IntegrationTest
   test "user is asked to log in then order is placed" do
     # Background: An existing user and a cart with items
     user = create(:user)
-    item = add_item_to_cart
+    items = add_two_items_to_cart
     # As a visitor
     # When I visit "/cart"
     visit cart_path
@@ -27,10 +27,11 @@ class UserChecksOutFromCartTest < ActionDispatch::IntegrationTest
     # And I should see a message "Order was successfully placed"
     assert page.has_content?("Order was successfully placed")
     # And I should see the order I just placed in a table
-    within "table" do
+    save_and_open_page
+    # within "table" do
       assert page.has_content?("Total: $#{item.price}")
       assert page.has_content?("#{item.title}")
-    end
+    # end
   end
 
   test "logged in user places order" do
