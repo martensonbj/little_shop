@@ -3,19 +3,31 @@
     <%= image_tag item.image_path, class: 'img-small' %>
   </div>
   <div class="col m8 s12 left-align">
-    <h5><%= item.title %> by <%= item.artist.first_name %> <%= item.artist.last_name %></h5>
+    <h5>
+      <%= item.title %> by <%= item.artist.first_name %> <%= item.artist.last_name %>
+    </h5>
+
     <p><%= item.description %></p>
-        <span id="quantity" class="col s2">
-          <%= form_tag cart_item_path(item, quantity), :method => :put do |f| %>
-            <%= label_tag :quantity %>
-            <%= text_field_tag :quantity, quantity %>
+
+    <div class="row">
+      <div class="col s6">
+        <%= form_tag cart_item_path(item, quantity), :method => :put do |f| %>
+          <%= label_tag :quantity %>
+          <%= text_field_tag :quantity, quantity %>
           <%= submit_tag "Update", :class=> "waves-effect waves-light btn"%>
-          <% end %>
-        </span>
-        <span id="price" class="col s2">* Price: $<%= item.price %>= Subtotal: $<%= quantity * item.price  %></span>
-        <br><br><br><br>
-        <div id="remove" class="left-align">
-          <br><%= link_to "Remove", cart_item_path(item), :class=> "waves-effect waves-light btn", method: :delete %>
-        </div>
+        <% end %>
+      </div>
+
+      <div class="col s6">
+        <br>
+        <div>Price: $<%= item.price %></div>
+        <div><strong>Subtotal: $<%= quantity * item.price  %></strong></div>
+      </div>
+    </div>
+
+    <%= link_to "Remove", cart_item_path(item), :class=> "waves-effect waves-light btn red darken-4 center-align remove-item-button", method: :delete %>
+
+
+    <br>
   </div>
 </div>
