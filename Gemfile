@@ -31,8 +31,8 @@ group :development, :test do
   gem "factory_girl_rails"
   gem 'database_cleaner'
   gem 'mocha'
-  gem 'shoulda', '~> 3.5'
-  gem 'shoulda-matchers', '~> 2.0'
+  # gem 'shoulda'
+  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
   gem 'simplecov', :require => false
 end
 
