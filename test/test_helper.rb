@@ -15,6 +15,7 @@ class ActiveSupport::TestCase
 
   def teardown
     DatabaseCleaner.clean
+    reset_session!
   end
 end
 
@@ -27,5 +28,6 @@ class ActionDispatch::IntegrationTest
 
   def teardown
     DatabaseCleaner.clean
+    reset_session!
   end
 end
