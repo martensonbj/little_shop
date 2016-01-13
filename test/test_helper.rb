@@ -1,8 +1,9 @@
-ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../../config/environment', __FILE__)
-require 'rails/test_help'
-require 'capybara/rails'
-require 'database_cleaner'
+ENV["RAILS_ENV"] ||= "test"
+require File.expand_path("../../config/environment", __FILE__)
+require "rails/test_help"
+require "capybara/rails"
+require "database_cleaner"
+require "mocha/mini_test"
 
 DatabaseCleaner.strategy = :truncation
 
@@ -15,6 +16,7 @@ class ActiveSupport::TestCase
 
   def teardown
     DatabaseCleaner.clean
+    reset_session!
   end
 end
 
@@ -27,5 +29,6 @@ class ActionDispatch::IntegrationTest
 
   def teardown
     DatabaseCleaner.clean
+    reset_session!
   end
 end

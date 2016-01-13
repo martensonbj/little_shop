@@ -10,6 +10,10 @@ class Cart
     contents[item_id.to_s] += 1
   end
 
+  def delete_item(item_id)
+    contents.delete(item_id.to_s)
+  end
+
   def item_quantities
     contents.map do |item_id, quantity|
       [Item.find(item_id.to_i), quantity]
