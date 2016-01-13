@@ -5,7 +5,7 @@ class UserSeesBrowseButtonOnLandingPageTest < ActionDispatch::IntegrationTest
 
     assert page.has_content?("Browse by Artist")
     assert page.has_content?("Browse by Category")
-    assert page.has_content?("Create New Account")
+    assert page.has_content?("Create Account")
 
   end
 end
