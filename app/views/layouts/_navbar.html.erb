@@ -2,7 +2,7 @@
   <div class="nav-wrapper blue-grey" >
     <%= link_to "RoughSketch", items_path %>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="/cart" id="shopping_cart"><i class="material-icons">shopping_cart</i></a></li>
+      <li><a href="/cart" id="shopping_cart"><i class="material-icons">shopping_cart</i><span class="new badge"><%= @cart.count %></span></a></li>
       <li><%= link_to "View All Items", items_path %></li>
       <li><%= link_to "Browse by Artist", items_path %></li>
       <li><%= link_to "Browse by Category", items_path %></li>

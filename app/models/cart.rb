@@ -10,6 +10,10 @@ class Cart
     contents[item_id.to_s] += 1
   end
 
+  def update_quantity(item_id, new_quantity)
+    contents[item_id] = new_quantity.to_i
+  end
+
   def delete_item(item_id)
     contents.delete(item_id.to_s)
   end
@@ -18,6 +22,10 @@ class Cart
     contents.map do |item_id, quantity|
       [Item.find(item_id.to_i), quantity]
     end
+  end
+
+  def count
+    contents.values.reduce(:+)
   end
 
   def total_price

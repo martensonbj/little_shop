@@ -14,6 +14,13 @@ class CartItemsController < ApplicationController
     @total = @cart.total_price
   end
 
+  def update
+    @cart.update_quantity(params[:id], params[:quantity])
+    @items_with_quantities = @cart.item_quantities
+    @total = @cart.total_price
+    redirect_to cart_path
+  end
+
   def destroy
     item = Item.find(params[:id])
     @cart.delete_item(item.id)

@@ -6,8 +6,16 @@ img {
   max-width: 100%;
 }
 
-.quantity {
-  padding-left: 20px;
+#quantity {
+
+}
+#price {
+  padding-top: 40px;
+}
+
+#remove {
+  padding-left: 10px;
+  padding-top: 10px;
 }
 
 .container {

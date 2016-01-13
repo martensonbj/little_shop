@@ -9,5 +9,4 @@ class Category < ActiveRecord::Base
   def generate_slug
     self.slug = name.parameterize
   end
-
 end

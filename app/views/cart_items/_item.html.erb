@@ -5,10 +5,16 @@
   <div class="col m8 s12 left-align">
     <h5><%= item.title %> by <%= item.artist.first_name %> <%= item.artist.last_name %></h5>
     <p><%= item.description %></p>
-    <p>
-      <span>Price: $<%= item.price %></span>
-      <span class="quantity">Quantity: <%=  quantity %></span>
-    </p>
-      <%= link_to "Remove", cart_item_path(item), method: :delete %>
+        <span id="quantity" class="col s2">
+          <%= form_tag cart_item_path(item, quantity), :method => :put do |f| %>
+            <%= label_tag :quantity %>
+            <%= text_field_tag :quantity, quantity %>
+            <a class="waves-effect waves-light btn"><%= submit_tag%></a>
+          <% end %>
+        </span>
+        <span id="price" class="col s2">* Price: $<%= item.price %></span><br><br><br><br>
+        <div id="remove" class="left-align">
+          <br><%= link_to "Remove", cart_item_path(item), :class=> "waves-effect waves-light btn", method: :delete %>
+        </div>
   </div>
 </div>
