@@ -2,7 +2,15 @@
   <div class="nav-wrapper blue-grey" >
     <%= link_to "RoughSketch", items_path %>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <% if current_user %>
+        <li class="login_confirm right-align">Logged in as <%= current_user.first_name %></li>
+      <% end %>
       <li><a href="/cart" id="shopping_cart"><i class="material-icons">shopping_cart</i></a></li>
+      <% if session[:user_id] %>
+        <li><%= link_to "Logout", logout_path %></li>
+      <% else %>
+        <li><%= link_to "Login", login_path %></li>
+      <% end %>
       <li><%= link_to "View All Items", items_path %></li>
       <li><%= link_to "Browse by Artist", items_path %></li>
       <li><%= link_to "Browse by Category", items_path %></li>
