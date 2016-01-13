@@ -2,12 +2,27 @@ img {
   max-width: 700px;
 }
 
+.remove-item-button {
+  font-size: 14px;
+  position: relative;
+  top: -56px;
+  left: 150px;
+}
+
 .img-small {
   max-width: 100%;
 }
 
-.quantity {
-  padding-left: 20px;
+#quantity {
+
+}
+#price {
+  padding-top: 25px;
+}
+
+#remove {
+  padding-left: 10px;
+  padding-top: 10px;
 }
 
 .container {

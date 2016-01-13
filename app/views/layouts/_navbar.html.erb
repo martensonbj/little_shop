@@ -6,6 +6,7 @@
         <li class="login_confirm right-align">Logged in as <%= current_user.first_name %></li>
       <% end %>
       <li><a href="/cart" id="shopping_cart"><i class="material-icons">shopping_cart</i></a></li>
+      <li class="new badge"><%= @cart.count %></li>
       <% if session[:user_id] %>
         <li><%= link_to "Logout", logout_path %></li>
       <% else %>
