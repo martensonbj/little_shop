@@ -1,16 +1,5 @@
 <% @items_with_quantities.each do |item, quantity| %>
-  <div class="row valign-wrapper">
-    <div class="col m4 s12 valign">
-      <%= image_tag item.image_path, class: 'img-small' %>
-    </div>
-    <div class="col m8 s12 left-align valign">
-      <h5><%= item.title %> by <%= item.artist.first_name %> <%= item.artist.last_name %></h5>
-      <p><%= item.description %></p>
-      <p>Price: $<%= item.price %></p>
-      <p>Quantity: <%=  quantity %></p>
-        <%= link_to "Remove", cart_item_path(item), method: :delete %>
-    </div>
-  </div>
+  <%= render partial: 'item', locals: { item: item, quantity: quantity } %>
 <% end %>
 
 <h3>Total: $<%= @total %></h3>
