@@ -3,3 +3,9 @@
 <% end %>
 
 <h3>Total: $<%= @total %></h3>
+
+<% if current_user %>
+  <%= button_to "Checkout", orders_path %>
+<% else %>
+  <%= button_to "Checkout", login_path, method: :get %>
+<% end %>
