@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col m4 s12">
+    <%= image_tag item.image_path, class: 'img-small' %>
+  </div>
+  <div class="col m8 s12 left-align">
+    <h5><%= item.title %> by <%= item.artist.first_name %> <%= item.artist.last_name %></h5>
+    <p><%= item.description %></p>
+    <p>
+      <span>Price: $<%= item.price %></span>
+      <span class="quantity">Quantity: <%=  quantity %></span>
+    </p>
+      <%= link_to "Remove", cart_item_path(item), method: :delete %>
+  </div>
+</div>
