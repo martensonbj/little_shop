@@ -13,4 +13,8 @@ class Order < ActiveRecord::Base
       sum + (order_item.quantity * items.find(order_item.item_id).price)
     end
   end
+
+  def quantity_of_item(item_id)
+    order_items.find_by(item_id: item_id).quantity
+  end
 end

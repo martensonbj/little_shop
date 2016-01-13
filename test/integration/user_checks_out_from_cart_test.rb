@@ -27,11 +27,10 @@ class UserChecksOutFromCartTest < ActionDispatch::IntegrationTest
     # And I should see a message "Order was successfully placed"
     assert page.has_content?("Order was successfully placed")
     # And I should see the order I just placed in a table
-    save_and_open_page
-    # within "table" do
-      assert page.has_content?("Total: $#{item.price}")
-      assert page.has_content?("#{item.title}")
-    # end
+    assert page.has_content?(items.first.title)
+    assert page.has_content?(items.last.title)
+    assert page.has_content?(Order.last.id)
+    assert page.has_content?(Order.last.total)
   end
 
   test "logged in user places order" do

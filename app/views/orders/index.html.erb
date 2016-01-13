@@ -1,15 +1,16 @@
 <% @orders.each do |order| %>
   <div class="card">
     <div class="card-action">
-      <h3><%= order.id %></h3>
-      <h3><%= order.date %></h3>
-      <h3>Total: <%= order.total %></h3>
+      <h3>Order ID: <%= order.id %></h3>
+      <h5>Date Ordered: <%= order.date %></h5>
+      <h5>Total: <%= order.total %></h5>
     </div>
     <div class="items">
       <% order.items.each do |item| %>
         <%= image_tag item.image_path %>
         <%= item.title %>
         Price: <%= item.price %>
+        Quantity: <%= order.quantity_of_item(item.id) %>
       <% end %>
     </div>
   </div>
