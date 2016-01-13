@@ -6,6 +6,10 @@ img {
   max-width: 100%;
 }
 
+.quantity {
+  padding-left: 20px;
+}
+
 .container {
   padding-top: 20px;
 }
