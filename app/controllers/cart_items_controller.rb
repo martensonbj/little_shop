@@ -2,7 +2,6 @@ class CartItemsController < ApplicationController
   def create
     item = Item.find(params[:item_id])
     @cart.add_item(item.id)
-
     session[:cart] = @cart.contents
     flash[:success] = "You added #{item.title} to your cart."
 
@@ -16,8 +15,6 @@ class CartItemsController < ApplicationController
 
   def update
     @cart.update_quantity(params[:id], params[:quantity])
-    @items_with_quantities = @cart.item_quantities
-    @total = @cart.total_price
     redirect_to cart_path
   end
 

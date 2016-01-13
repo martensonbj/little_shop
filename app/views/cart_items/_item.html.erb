@@ -9,10 +9,11 @@
           <%= form_tag cart_item_path(item, quantity), :method => :put do |f| %>
             <%= label_tag :quantity %>
             <%= text_field_tag :quantity, quantity %>
-            <a class="waves-effect waves-light btn"><%= submit_tag%></a>
+          <%= submit_tag "Update", :class=> "waves-effect waves-light btn"%>
           <% end %>
         </span>
-        <span id="price" class="col s2">* Price: $<%= item.price %></span><br><br><br><br>
+        <span id="price" class="col s2">* Price: $<%= item.price %>= Subtotal: $<%= quantity * item.price  %></span>
+        <br><br><br><br>
         <div id="remove" class="left-align">
           <br><%= link_to "Remove", cart_item_path(item), :class=> "waves-effect waves-light btn", method: :delete %>
         </div>

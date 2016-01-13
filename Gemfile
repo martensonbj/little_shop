@@ -40,7 +40,8 @@ group :development, :test do
   gem "factory_girl_rails"
   gem 'database_cleaner'
   gem 'mocha'
-  gem 'shoulda-matchers', "~> 3.0.1"
+  gem 'shoulda', '~> 3.5'
+  gem 'shoulda-matchers', '~> 2.0'
 end
 
 group :development do

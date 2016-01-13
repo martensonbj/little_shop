@@ -1,20 +1,20 @@
-require 'test_helper'
+require "test_helper"
 
 class GuestCanChangeQuanityInCartTest < ActionDispatch::IntegrationTest
   test "guest visits cart and adds more items" do
     create_and_add_item_to_cart
     visit cart_path
     fill_in "Quantity", with: "4"
-    click_button "Save changes"
-    # save_and_open_page
-    assert_equal '/cart', current_path
+    click_button "Update"
+
+    assert_equal "/cart", current_path
     assert page.has_content? "Total: $#{@item.price * 4}"
     refute page.has_content? "Total: $#{@item.price * 1}"
 
     fill_in "Quantity", with: "2"
-    click_button "Save changes"
+    click_button "Update"
 
-    assert_equal '/cart', current_path
+    assert_equal "/cart", current_path
     assert page.has_content? "Total: $#{@item.price * 2}"
     refute page.has_content? "Total: $#{@item.price * 4}"
   end
