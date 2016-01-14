@@ -1,40 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>LittleShop</title>
 
-    <%= csrf_meta_tags %>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-   <!-- Compiled and minified JavaScript -->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= render partial: "layouts/head" %>
 
-   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-   <!-- Load masonry files -->
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.0.0/imagesloaded.pkgd.js"></script>
-  </head>
   <body class="landing_page">
-  <%= render partial: "layouts/navbar" %>
 
-  <div class="container center-align">
-    <%= yield %>
-  </div>
+    <!-- Compiled and minified JavaScript -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <%= render partial: "layouts/navbar" %>
 
-  <script type="text/javascript">
-    $grid = $('.grid');
+    <div class="container center-align">
+      <%= yield %>
+    </div>
 
-    $grid.imagesLoaded( function(){
-      $grid.masonry({
-        itemSelector: '.grid-item',
-        columnWidth: 370,
-        isFitWidth: true
+    <script type="text/javascript">
+      $grid = $('.grid');
+
+      $grid.imagesLoaded( function(){
+        $grid.masonry({
+          itemSelector: '.grid-item',
+          columnWidth: 370,
+          isFitWidth: true
+        });
       });
-    });
-  </script>
+    </script>
+
+    <script type="text/javascript">
+    $( document ).ready(function(){
+      $(".button-collapse").sideNav();
+    })
+    </script>
 
   </body>
 </html>
