@@ -86,4 +86,12 @@ img {
 
 .flash_success {
   background-color: #ccff90;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.flash_error {
+  background-color: #f25050;
+  text-align: center;
+  font-size: 1.2em;
 }
