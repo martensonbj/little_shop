@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col s12 m12">
+    <div class="card-panel blue-grey lighten-5">
+      <div class="card-title order_card_title"><a href="/orders/<%= order.id %>">Order ID: <%= order.id %></a></div>
+
+      <div class="card-content order_card_content">
+        <div class="row order_details_top">
+          <div class="col s4"><span class="order_heading">Ordered:</span> <%= order.date %></div>
+          <div class="col s4"><span class="order_heading">Status:</span> Ordered</div>
+          <div class="col s4"><span class="order_heading">Total:</span> <%= order.total %></div>
+        </div> <!-- row -->
+
+          <div class="items">
+            <% order.items.each do |item| %>
+              <div class="row">
+                <div class="order_image col s5"><%= image_tag item.image_path %></div>
+                <div class="order_data col s7">
+                  <p><span class="order_heading">Item Title:</span><%= link_to item.title, item_path(item) %></p>
+                  <p><span class="order_heading">Price:</span> <%= item.price %></p>
+                  <p><span class="order_heading">Quantity:</span> <%= order.quantity_of_item(item.id) %></p>
+                  <p><span class="order_heading">Subtotal:</span> <%= item.price * order.quantity_of_item(item.id) %></p>
+                </div>
+              </div> <!-- row -->
+            <% end %> <!--order_data-->
+          </div> <!--items-->
+
+      </div> <!--card-content-->
+    </div> <!-- card-panel -->
+  </div><!-- col s12 -->
+</div> <!--row-->

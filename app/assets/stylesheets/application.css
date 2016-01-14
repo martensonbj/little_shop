@@ -1,5 +1,5 @@
 img {
-  max-width: 700px;
+  max-width: 100%;
 }
 
 .remove-item-button {
@@ -17,9 +17,6 @@ img {
   max-width: 100%;
 }
 
-#quantity {
-
-}
 #price {
   padding-top: 25px;
 }
@@ -102,4 +99,48 @@ img {
   background-color: #f25050;
   text-align: center;
   font-size: 1.2em;
+}
+
+/* ORDERS SHOW PAGE */
+
+.order_image.col.s5 {
+    clear: both;
+}
+
+.order_card_title {
+    font-size: 30px;
+    display: block;
+    padding-bottom: 17px;
+    font-weight: 700;
+}
+
+.order_details_top {
+    font-size: 15px;
+    padding: 20px 0px;
+    font-weight: 300;
+    border-bottom: 1px dashed #607D8B;
+}
+
+span.order_heading {
+    font-weight: 700;
+    text-decoration: underline;
+    margin-right: 10px;
+}
+
+.order_data {
+    text-align: left;
+    font-size: 17px;
+}
+
+.order_data a {
+  font-size: 20px;
+  color: rgb(64, 136, 171);
+}
+
+.order_data a:hover {
+    color: #0EAF15;
+}
+
+.card-panel {
+  margin-top: 2rem;
 }
