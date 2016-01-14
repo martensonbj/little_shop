@@ -2,7 +2,7 @@ require "test_helper"
 
 class UserCanCreateAccountTest < ActionDispatch::IntegrationTest
   test "user can create account and sees profile" do
-    add_item_to_cart_and_visit_shopping_cart
+    add_items_to_cart_and_visit_shopping_cart(1)
     @item = @items.first
     assert page.has_content?(@item.title)
 
@@ -30,8 +30,9 @@ class UserCanCreateAccountTest < ActionDispatch::IntegrationTest
     find("#shopping_cart").click
     assert_equal cart_path, current_path
     assert page.has_content?(@item.title)
-
-    click_on "Logout"
+    within "#nav-mobile" do
+      click_on "Logout"
+    end
     refute page.has_content?("Logout")
     assert page.has_content?("Login")
     refute page.has_content?("Logged in as")

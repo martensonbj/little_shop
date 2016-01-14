@@ -2,7 +2,7 @@ require "test_helper"
 
 class UserRemovesItemFromCartTest < ActionDispatch::IntegrationTest
   test "item is removed from current cart" do
-    add_item_to_cart_and_visit_shopping_cart
+    add_items_to_cart_and_visit_shopping_cart(1)
     @item = @items.first
     visit cart_path
     click_link "Remove"

@@ -5,7 +5,7 @@ class UserSeesDetailsForPastOrdersTest < ActionDispatch::IntegrationTest
     user = create(:user)
     ApplicationController.any_instance.stubs(:current_user).returns(user)
 
-    add_item_to_cart_and_visit_shopping_cart(2)
+    add_items_to_cart_and_visit_shopping_cart(2)
     click_on "Checkout"
 
     visit orders_path
@@ -25,6 +25,6 @@ class UserSeesDetailsForPastOrdersTest < ActionDispatch::IntegrationTest
 
     assert page.has_content?("Status: Ordered")
     assert page.has_content?("Total: #{order.total}")
-    assert page.has_content?("Date Ordered: #{order.date}")
+    assert page.has_content?("Ordered: #{order.date}")
   end
 end
