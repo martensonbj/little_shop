@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :cart_items, only: [:create, :destroy, :update]
   resources :orders, only: [:index, :create, :show]
 
+  namespace :admin do
+    get "/dashboard", to: "users#show"
+  end
+
   get "/cart", to: "cart_items#index"
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
