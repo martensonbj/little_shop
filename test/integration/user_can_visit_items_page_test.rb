@@ -9,6 +9,5 @@ class UserCanVisitItemsPageTest < ActionDispatch::IntegrationTest
     assert page.has_content? "#{items.last.title}"
     assert page.has_css?("img[src*='#{items.first.image_path}']")
     assert page.has_css?("img[src*='#{items.last.image_path}']")
-
   end
 end

@@ -33,6 +33,13 @@ FactoryGirl.define do
     end
   end
 
+  factory :user do
+    first_name
+    last_name
+    username "user"
+    password "password"
+  end
+
   sequence :name, %w(a b c).cycle do |n|
     "name#{n}"
   end

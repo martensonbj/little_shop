@@ -1,23 +1,22 @@
 <h3>Create a New Account</h3>
-  <%= form_for(@user) do |f| %>
+<%= form_for(@user) do |f| %>
 
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
 
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
 
-    <%= f.label :username %>
-    <%= f.text_field :username  %>
-    <br>
+  <%= f.label :username %>
+  <%= f.text_field :username  %>
+  <br>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    <br>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <br>
 
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
 
-    <%= f.submit "Create Account",  class: "wave-effect waves-light btn" %>
-  <% end  %>
-</div>
+  <%= f.submit "Create Account",  class: "wave-effect waves-light btn" %>
+<% end  %>
