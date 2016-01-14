@@ -13,9 +13,6 @@ img {
   max-width: 100%;
 }
 
-#quantity {
-
-}
 #price {
   padding-top: 25px;
 }
@@ -104,10 +101,6 @@ img {
 
 .order_image.col.s5 {
     clear: both;
-}
-
-.order_image.col.s5 img {
-    max-width: 300px;
 }
 
 .order_card_title {
