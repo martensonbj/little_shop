@@ -1,7 +1,7 @@
 <% @orders.each do |order| %>
   <div class="card">
     <div class="card-action">
-      <h3>Order ID: <%= order.id %></h3>
+      <h3><%=link_to "Order ID: #{order.id}", order_path(order)%></h3>
       <h5>Date Ordered: <%= order.date %></h5>
       <h5>Total: <%= order.total %></h5>
     </div>
