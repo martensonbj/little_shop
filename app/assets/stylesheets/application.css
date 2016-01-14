@@ -86,6 +86,10 @@ img {
   opacity: 0.8;
 }
 
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating) {
+  margin-right: 0;
+}
+
 /* Flash Messages */
 
 .flash_success {
