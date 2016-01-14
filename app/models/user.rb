@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true
   validates :last_name, presence: true
   has_many :orders
+
+  enum role: %w(default artist admin)
 end
