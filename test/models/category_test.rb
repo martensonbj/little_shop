@@ -1,7 +1,5 @@
-require 'test_helper'
+require "test_helper"
 
 class CategoryTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  should validate_presence_of(:name)
 end
