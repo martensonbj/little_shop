@@ -1,6 +1,9 @@
 <nav>
   <div class="nav-wrapper blue-grey" >
-    <%= link_to "RoughSketch", root_path %>
+    <%= link_to "RoughSketch", root_path, class: "brand-logo" %>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+
+    <!-- DESKTOP NAV -->
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <% if current_user %>
         <li class="right-align">
@@ -17,6 +20,26 @@
       <li><%= link_to "View All Items", items_path %></li>
       <li><%= link_to "Browse by Artist", items_path %></li>
       <li><%= link_to "Browse by Category", categories_path %></li>
+    </ul>
+
+    <!-- MOBILE NAV -->
+    <ul class="side-nav" id="mobile-demo">
+      <li><strong><%= link_to "RoughSketch", root_path %></strong></li>
+
+      <li><%= link_to "View All Items", items_path %></li>
+      <li><%= link_to "Browse by Artist", items_path %></li>
+      <li><%= link_to "Browse by Category", categories_path %></li>
+      <li><%= link_to "View Cart", cart_path %></li>
+      <% if current_user %>
+      <li class="left-align">
+        <%= link_to "#{current_user.first_name}'s Dashboard", dashboard_path(current_user) , class: "login_confirm"%>
+      </li>
+      <% end %>
+      <% if session[:user_id] %>
+        <li><%= link_to "Logout", logout_path %></li>
+      <% else %>
+        <li><%= link_to "Login", login_path %></li>
+      <% end %>
     </ul>
   </div>
 </nav>
