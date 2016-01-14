@@ -5,7 +5,7 @@ class UserSeesDetailsForPastOrdersTest < ActionDispatch::IntegrationTest
     user = create(:user)
     ApplicationController.any_instance.stubs(:current_user).returns(user)
 
-    add_two_items_to_cart_and_visit_shopping_cart
+    add_items_to_cart_and_visit_shopping_cart(2)
     click_on "Checkout"
 
     visit orders_path

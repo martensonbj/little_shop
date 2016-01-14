@@ -1,5 +1,6 @@
 <h3>Create a New Account</h3>
 <%= form_for(@user) do |f| %>
+  <%= render partial: 'shared/errors', locals: {target: @user} %>
 
   <%= f.label :first_name %>
   <%= f.text_field :first_name %>
