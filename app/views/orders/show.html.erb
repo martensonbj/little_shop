@@ -1,15 +1,1 @@
-<h3>Order ID: <%= @order.id %></h3>
-<h5>Date Ordered: <%= @order.date %></h5>
-<h5>Total: <%= @order.total %></h5>
-<h5>Status: Ordered</h5>
-
-
-<div class="items">
-  <% @order.items.each do |item| %>
-    <%= image_tag item.image_path %>
-    <%= link_to item.title, item_path(item) %>
-    Price: <%= item.price %>
-    Quantity: <%= @order.quantity_of_item(item.id) %>
-    Subtotal: <%= item.price * @order.quantity_of_item(item.id) %>
-  <% end %>
-</div>
+<%= render partial: "order_card" %>
