@@ -25,6 +25,6 @@ class UserSeesDetailsForPastOrdersTest < ActionDispatch::IntegrationTest
 
     assert page.has_content?("Status: Ordered")
     assert page.has_content?("Total: #{order.total}")
-    assert page.has_content?("Date Ordered: #{order.date}")
+    assert page.has_content?("Ordered: #{order.date}")
   end
 end
