@@ -2,40 +2,7 @@
 <div class="row">
   <div class="col s12 m12">
     <% @orders.each do |order| %>
-    <div class="card-panel blue-grey lighten-5">
-
-  <!--ORDER HEADER -->
-          <div class="card-title order_card_title"><%=link_to "Order ID: #{order.id}", order_path(order)%></div>
-
-          <div class="card-content order_card_content">
-            <div class="row order_details_top">
-              <div class="col s4"><span class="order_heading">Ordered:</span> <%= order.date %></div>
-              <div class="col s4"><span class="order_heading">Status:</span> Ordered</div>
-              <div class="col s4"><span class="order_heading">Total:</span> <%= order.total %></div>
-            </div> <!-- row -->
-
-  <!-- END OF ORDER HEADER -->
-  <!-- BODY OF ITEM DETAILS -->
-          <div class="row">
-            <div class="items">
-
-              <% order.items.each do |item| %>
-
-                <div class="order_image col s5"><%= image_tag item.image_path %></div>
-
-                <div class="order_data col s7">
-                  <p><span class="order_heading">Item Title:</span><%= link_to item.title, item_path(item) %></p>
-                  <p><span class="order_heading">Price:</span> <%= item.price %></p>
-                  <p><span class="order_heading">Quantity:</span> <%= order.quantity_of_item(item.id) %></p>
-                </div> <!-- order_data -->
-
-              <% end %>
-
-            </div> <!--items-->
-          </div> <!-- row -->
-  <!-- END OF ORDER BODY -->
-      </div> <!--card-content-->
-    </div> <!--card-panel-->
+      <%= render partial: "order_card", locals: { order: order } %>
     <% end %>
     <br>
   </div> <!-- col s12 -->
