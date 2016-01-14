@@ -22,6 +22,10 @@ class Cart
     @contents = {}
   end
 
+  def empty?
+    @contents.empty?
+  end
+
   def item_quantities
     contents.map do |item_id, quantity|
       [Item.find(item_id.to_i), quantity]
