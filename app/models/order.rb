@@ -10,7 +10,7 @@ class Order < ActiveRecord::Base
 
   def total
     order_items.inject(0) do |sum, order_item|
-      sum + (order_item.quantity * items.find(order_item.item_id).price)
+      sum + (order_item.quantity * items.find(order_item.item_id).price).to_i
     end
   end
 
