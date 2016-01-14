@@ -9,6 +9,10 @@ img {
   left: 150px;
 }
 
+.login_confirm {
+  color: #a7ffeb;
+}
+
 .img-small {
   max-width: 100%;
 }
