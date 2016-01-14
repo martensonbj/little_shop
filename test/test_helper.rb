@@ -37,7 +37,6 @@ class ActionDispatch::IntegrationTest
 
     find("#shopping_cart").click
   end
-  # 
   # def add_two_items_to_cart_and_visit_shopping_cart
   #   @items = create_list(:item, 2)
   #
@@ -49,7 +48,6 @@ class ActionDispatch::IntegrationTest
   #   find("#shopping_cart").click
   # end
 end
-
 # Shoulda::Matchers.configure do |config|
 #   config.integrate do |with|
 #     # Choose a test framework:
