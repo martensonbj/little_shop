@@ -2,6 +2,12 @@ img {
   max-width: 100%;
 }
 
+h2 {
+    font-size: 5rem;
+    letter-spacing: 1.1rem;
+    font-family: 'Amatic SC', cursive;
+}
+
 .remove-item-button {
   font-size: 14px;
   position: relative;
@@ -35,6 +41,10 @@ img {
   background-size: cover;
   background-repeat:no-repeat;
   height: 100vh;
+}
+
+.error {
+  background-color: red
 }
 
 .error {
@@ -87,6 +97,10 @@ img {
 
 .card-title {
   opacity: 0.8;
+}
+.title-links{
+font-family: 'Amatic SC', cursive;
+font-size: 40px
 }
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-floating) {

@@ -4,7 +4,7 @@
       <%= image_tag item.image_path %>
     </a>
     <div class="card-action">
-      <span class="card-title"><a href="/items/<%= item.id %>"><%= item.title %></a></span>
+      <span class="card-title"><a class="black-text title-links" href="/items/<%= item.id %>"><%= item.title %></a></span>
       <%= button_to "Add to Cart", cart_items_path(item_id: item.id), class: "btn waves-effect waves-light" %>
     </div>
   </div>
