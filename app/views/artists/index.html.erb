@@ -1,0 +1,8 @@
+<% @artists.each do |artist| %>
+<h3><%= artist.first_name %> <%= artist.last_name %></h3>
+<div id="artist_<%= artist.id %>" class="grid">
+  <% artist.items.each do |item| %>
+    <%= render partial: 'shared/item_card', locals: { item: item } %>
+  <% end %>
+</div>
+<% end %>
