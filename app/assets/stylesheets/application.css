@@ -33,6 +33,8 @@ img {
 .landing_page {
   background-image: url('bg2.jpg');
   background-size: cover;
+  background-repeat:no-repeat;
+  height: 100vh;
 }
 
 .error {
