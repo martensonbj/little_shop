@@ -1,10 +1,10 @@
 <div class="grid-item">
   <div class="card">
-    <div class="card-image">
+    <a href="/items/<%= item.id %>" class="card-image">
       <%= image_tag item.image_path %>
-    </div>
+    </a>
     <div class="card-action">
-      <span class="card-title"><%= item.title %></span>
+      <span class="card-title"><a href="/items/<%= item.id %>"><%= item.title %></a></span>
       <%= button_to "Add to Cart", cart_items_path(item_id: item.id), class: "btn waves-effect waves-light" %>
     </div>
   </div>
