@@ -12,7 +12,9 @@ class UserChecksOutFromCartTest < ActionDispatch::IntegrationTest
 
     fill_in "Username", with: user.username
     fill_in "Password", with: user.password
-    click_on "Login"
+    within "form" do
+      click_button "Login"
+    end
 
     visit cart_path
     click_button "Checkout"

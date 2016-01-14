@@ -1,4 +1,4 @@
-class SessionsController < ActionController::Base
+class SessionsController < ApplicationController
   def new
   end
 
@@ -9,8 +9,8 @@ class SessionsController < ActionController::Base
       session[:user_id] = user.id
       redirect_to dashboard_path
     else
-      flash.now[:error] = "Invalid login credentials"
-      render :new
+      flash[:error] = "Invalid login credentials"
+      redirect_to login_path
     end
   end
 
