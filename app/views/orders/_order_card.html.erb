@@ -13,8 +13,8 @@
           <div class="items">
             <% order.items.each do |item| %>
               <div class="row">
-                <div class="order_image col s5"><%= image_tag item.image_path %></div>
-                <div class="order_data col s7">
+                <div class="order_image col s12 m5"><%= image_tag item.image_path %></div>
+                <div class="order_data col s12 m7">
                   <p><span class="order_heading">Item Title:</span><%= link_to item.title, item_path(item) %></p>
                   <p><span class="order_heading">Price:</span> <%= item.price %></p>
                   <p><span class="order_heading">Quantity:</span> <%= order.quantity_of_item(item.id) %></p>
