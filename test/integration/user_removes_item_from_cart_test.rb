@@ -2,7 +2,7 @@ require "test_helper"
 
 class UserRemovesItemFromCartTest < ActionDispatch::IntegrationTest
   test "item is removed from current cart" do
-    create_and_add_item_to_cart
+    add_item_to_cart_and_visit_shopping_cart
     visit cart_path
 
     click_link "Remove"
@@ -16,12 +16,5 @@ class UserRemovesItemFromCartTest < ActionDispatch::IntegrationTest
     within ".container" do
       refute page.has_content?(@item.title)
     end
-  end
-
-  def create_and_add_item_to_cart
-    @item = create(:item)
-
-    visit item_path(@item)
-    click_button "Add to Cart"
   end
 end
