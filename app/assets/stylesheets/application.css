@@ -2,6 +2,12 @@ img {
   max-width: 700px;
 }
 
+h2 {
+    font-size: 5rem;
+    letter-spacing: 1.1rem;
+    font-family: 'Amatic SC', cursive;
+}
+
 .remove-item-button {
   font-size: 14px;
   position: relative;
@@ -85,7 +91,10 @@ img {
 .card-title {
   opacity: 0.8;
 }
-
+.title-links{
+font-family: 'Amatic SC', cursive;
+font-size: 40px
+}
 /* Flash Messages */
 
 .flash_success {

@@ -4,7 +4,6 @@ class GuestCanChangeQuanityInCartTest < ActionDispatch::IntegrationTest
   test "guest visits cart and adds more items" do
     add_item_to_cart_and_visit_shopping_cart
     @item = @items.first
-    
     visit cart_path
 
     assert page.has_content? "Total: $#{@item.price * 1}"
