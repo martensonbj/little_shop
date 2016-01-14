@@ -13,4 +13,8 @@ class OrdersController < ApplicationController
     flash[:success] = "Order was successfully placed"
     redirect_to orders_path(order_id: order.id)
   end
+
+  def show
+    @order = Order.find(params[:id])
+  end
 end
