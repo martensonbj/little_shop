@@ -27,17 +27,8 @@ end
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
 
-  def add_item_to_cart_and_visit_shopping_cart
-    @item = create(:item)
-    visit item_path(@item)
-
-    click_button "Add to Cart"
-
-    find("#shopping_cart").click
-  end
-
-  def add_two_items_to_cart_and_visit_shopping_cart
-    @items = create_list(:item, 2)
+  def add_item_to_cart_and_visit_shopping_cart(num = 1)
+    @items = create_list(:item, num)
 
     @items.each do |item|
       visit item_path(item)
@@ -46,6 +37,17 @@ class ActionDispatch::IntegrationTest
 
     find("#shopping_cart").click
   end
+  # 
+  # def add_two_items_to_cart_and_visit_shopping_cart
+  #   @items = create_list(:item, 2)
+  #
+  #   @items.each do |item|
+  #     visit item_path(item)
+  #     click_button "Add to Cart"
+  #   end
+  #
+  #   find("#shopping_cart").click
+  # end
 end
 
 # Shoulda::Matchers.configure do |config|

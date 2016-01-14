@@ -3,7 +3,7 @@ require "test_helper"
 class UserChecksOutFromCartTest < ActionDispatch::IntegrationTest
   test "user is asked to log in then order is placed" do
     user = create(:user)
-    add_two_items_to_cart_and_visit_shopping_cart
+    add_item_to_cart_and_visit_shopping_cart(2)
 
     visit cart_path
     click_button "Checkout"
@@ -31,7 +31,7 @@ class UserChecksOutFromCartTest < ActionDispatch::IntegrationTest
   end
 
   test "logged in user places order" do
-    add_two_items_to_cart_and_visit_shopping_cart
+    add_item_to_cart_and_visit_shopping_cart(2)
     user = create(:user)
     ApplicationController.any_instance.stubs(:current_user).returns(user)
 

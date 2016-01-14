@@ -3,6 +3,8 @@ require "test_helper"
 class UserCanCreateAccountTest < ActionDispatch::IntegrationTest
   test "user can create account and sees profile" do
     add_item_to_cart_and_visit_shopping_cart
+    @item = @items.first
+    
     assert page.has_content?(@item.title)
 
     visit "/"
