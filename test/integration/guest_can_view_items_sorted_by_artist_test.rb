@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class GuestCanViewItemsSortedByArtistTest < ActionDispatch::IntegrationTest
   test "items are shown under their assigned artist" do
@@ -7,16 +7,16 @@ class GuestCanViewItemsSortedByArtistTest < ActionDispatch::IntegrationTest
 
     visit artists_path
 
-    assert page.has_content?(artist1.name)
-    within "\##{artist1.name}" do
+    assert page.has_content?("#{artist1.first_name} #{artist1.last_name}")
+    within "\#artist_#{artist1.id}" do
       assert page.has_content?(artist1.items.first.title)
       assert page.has_content?(artist1.items.last.title)
       refute page.has_content?(artist2.items.first.title)
       refute page.has_content?(artist2.items.last.title)
     end
 
-    assert page.has_content?(artist2.name)
-    within "\##{artist2.name}" do
+    assert page.has_content?("#{artist2.first_name} #{artist2.last_name}")
+    within "\#artist_#{artist2.id}" do
       assert page.has_content?(artist2.items.first.title)
       assert page.has_content?(artist2.items.last.title)
       refute page.has_content?(artist1.items.first.title)
