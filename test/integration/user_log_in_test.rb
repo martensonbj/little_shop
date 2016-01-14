@@ -35,10 +35,10 @@ class UserLogInTest < ActionDispatch::IntegrationTest
   end
 
   test "user cannot login with incorrect password" do
-    user = create(:user)
+    create(:user)
     visit login_path
 
-    fill_in "Username", with: "user"
+    fill_in "Username", with: "username"
     fill_in "Password", with: "wrong_password"
     within "form" do
       click_button "Login"
@@ -50,7 +50,7 @@ class UserLogInTest < ActionDispatch::IntegrationTest
   end
 
   test "user cannot login with incorrect username" do
-    user = create(:user)
+    create(:user)
     visit login_path
 
     fill_in "Username", with: "wrong_user"
