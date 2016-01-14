@@ -1,0 +1,8 @@
+<% @categories.each do |category| %>
+  <h3><%= category.name %></h3>
+  <div id="<%= category.name %>" class="grid">
+    <% category.items.each do |item| %>
+      <%= render partial: 'shared/item_card', locals: { item: item } %>
+    <% end %>
+  </div>
+<% end %>
