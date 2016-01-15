@@ -13,15 +13,14 @@ class UserSeesDetailsForPastOrdersTest < ActionDispatch::IntegrationTest
 
     assert page.has_content?(order.id)
     assert page.has_content?(order.total)
-    assert page.has_link?("Order ID:
-                          #{order.id}", href: user_order_path(user, order))
+    assert page.has_link?("Order ID: #{order.id}",
+                          href: user_order_path(user, order))
     click_on "Order ID: #{order.id}"
 
     @items.each do |item|
       assert page.has_content?(item.title)
       assert page.has_content?("Quantity: 1")
-      assert page.has_content?("Subtotal:
-                                #{item.price * 1}")
+      assert page.has_content?("Subtotal: #{item.price * 1}")
       assert page.has_link?("#{item.title}", href: item_path(item))
     end
 
