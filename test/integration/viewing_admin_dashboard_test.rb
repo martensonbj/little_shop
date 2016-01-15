@@ -1,20 +1,26 @@
-require 'test_helper'
+require "test_helper"
 
 class ViewingAdminDashboardTest < ActionDispatch::IntegrationTest
-  test "admin can view the admin dashboard when logged in" do
+  test "registered admin can view the admin dashboard when logged in" do
     admin = create(:admin)
-    byebug
+    ApplicationController.any_instance.stubs(:current_user).returns(admin)
 
-    # As an Admin
-    # When I visit "/admin/dashboard"
-    # I will see a heading on the page that says "Admin Dashboard"
-    #
-    # As a registered user
-    # When I visit "/admin/dashboard"
-    # I get a 404
-    #
-    # As an unregistered user
-    # When I visit "/admin/dashboard"
-    # I get a 404
+    visit admin_dashboard_path
+    assert page.has_content?("Admin Dashboard")
+  end
+
+  test "registered user cannot view the admin dashboard when logged in" do
+    user = create(:user)
+    ApplicationController.any_instance.stubs(:current_user).returns(user)
+
+    visit admin_dashboard_path
+    message_404 = "The page you were looking for doesn't exist (404)"
+    assert page.has_content?(message_404)
+  end
+
+  test "unregistered user cannot view the admin dashboard" do
+    visit admin_dashboard_path
+    message_404 = "The page you were looking for doesn't exist (404)"
+    assert page.has_content?(message_404)
   end
 end
