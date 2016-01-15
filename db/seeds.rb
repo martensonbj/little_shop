@@ -30,12 +30,16 @@ class Seed
       first_name = full_name.split.first
       last_name = full_name.split.last
 
-      Artist.create!(first_name: first_name, last_name: last_name)
+      User.create!(first_name: first_name,
+                   last_name: last_name,
+                   username: "#{first_name}",
+                   password: "password",
+                   role: 1)
     end
 
-    @brenna = Artist.find_by(first_name: "Brenna")
-    @taylor = Artist.find_by(first_name: "Taylor")
-    @toni = Artist.find_by(first_name: "Toni")
+    @brenna = User.find_by(first_name: "Brenna")
+    @taylor = User.find_by(first_name: "Taylor")
+    @toni = User.find_by(first_name: "Toni")
   end
 
   def create_items
@@ -43,68 +47,68 @@ class Seed
                  description: "Oil painting of Paris and the Eiffel Tower",
                  price: 200,
                  image_path: "http://tinyurl.com/zs8xlz8",
-                 artist_id: @brenna.id,
+                 user_id: @brenna.id,
                  category_id: @painting.id)
     Item.create!(title: "German Castle",
                  description: "Photograph of an awe inspiring German castle",
                  price: 100,
                  image_path: "http://tinyurl.com/h7qo2n2",
-                 artist_id: @brenna.id,
+                 user_id: @brenna.id,
                  category_id: @photography.id)
     Item.create!(title: "Shanghai Landscape",
                  description: "Photograph of the TV Tower in Shanghai",
                  price: 80,
                  image_path: "http://tinyurl.com/hwkg2a4",
-                 artist_id: @brenna.id,
+                 user_id: @brenna.id,
                  category_id: @photography.id)
     Item.create!(title: "Aurora Borealis",
                  description: "Photograph of the Aurora Borealis in winter",
                  price: 150,
                  image_path: "http://tinyurl.com/zccbtyz",
-                 artist_id: @brenna.id,
+                 user_id: @brenna.id,
                  category_id: @photography.id)
     Item.create!(title: "Sailboat in Fall",
                  description: "Acrylic painting of a colorful sailboat",
                  price: 200,
                  image_path: "http://tinyurl.com/zo5d93t",
-                 artist_id: @toni.id,
+                 user_id: @toni.id,
                  category_id: @painting.id)
     Item.create!(title: "Colorful Trees",
                  description: "Digital image of amazing colorful trees",
                  price: 60,
                  image_path: "http://tinyurl.com/z2457zf",
-                 artist_id: @toni.id,
+                 user_id: @toni.id,
                  category_id: @digital.id)
     Item.create!(title: "Flower Girl",
                  description: "Digital art of a woman with a flowering face",
                  price: 150,
                  image_path: "http://tinyurl.com/h9nvajo",
-                 artist_id: @toni.id,
+                 user_id: @toni.id,
                  category_id: @digital.id)
     Item.create!(title: "Darkness",
                  description: "Painting of the dark knight",
                  price: 300,
                  image_path: "http://tinyurl.com/gtckjgl",
-                 artist_id: @taylor.id,
+                 user_id: @taylor.id,
                  category_id: @painting.id)
     Item.create!(title: "Aspens in the Fall",
                  description: "Amazing photograph of aspens",
                  price: 100,
                  image_path: "http://tinyurl.com/jk2t3p3",
-                 artist_id: @taylor.id,
+                 user_id: @taylor.id,
                  category_id: @photography.id)
     Item.create!(title: "The Batman Watches",
                  description: "Digital image of Batman watching" \
                               " over the city of Gotham",
                  price: 125,
                  image_path: "http://tinyurl.com/h7dtwv4",
-                 artist_id: @taylor.id,
+                 user_id: @taylor.id,
                  category_id: @digital.id)
     Item.create!(title: "Cheers!",
                  description: "Digital image of delicious cold beer",
                  price: 30,
                  image_path: "http://tinyurl.com/hnfhnt9",
-                 artist_id: @taylor.id,
+                 user_id: @taylor.id,
                  category_id: @digital.id)
   end
 end
