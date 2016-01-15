@@ -7,10 +7,10 @@ class AdminUserCreatesItemTest < ActionDispatch::IntegrationTest
                      username: "admin",
                      password: "password",
                      role: 2)
-    user = User.create(first_name: "Mofo",
-                      last_name: "bitch",
-                      username: "mofo",
-                      password: "ass",
+    user = User.create(first_name: "taylor",
+                      last_name: "moore",
+                      username: "taylor",
+                      password: "moore",
                       role: 1)
 
     category1, category2, category3 =
@@ -30,7 +30,7 @@ class AdminUserCreatesItemTest < ActionDispatch::IntegrationTest
 
     assert_equal item_path(Item.last), current_path
     assert page.has_content? "Meat"
-    assert page.has_content? "Mofo bitch"
+    assert page.has_content? "taylor moore"
   end
 end
 # As an authenticated Admin:
