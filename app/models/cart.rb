@@ -19,7 +19,7 @@ class Cart
   end
 
   def clear
-    @contents = {}
+    @contents.clear
   end
 
   def empty?
