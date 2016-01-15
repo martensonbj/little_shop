@@ -11,17 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114222006) do
+ActiveRecord::Schema.define(version: 20160115171852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "artists", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -33,16 +26,16 @@ ActiveRecord::Schema.define(version: 20160114222006) do
   create_table "items", force: :cascade do |t|
     t.string   "title"
     t.string   "image_path"
-    t.integer  "artist_id"
     t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "price"
     t.text     "description"
+    t.integer  "user_id"
   end
 
-  add_index "items", ["artist_id"], name: "index_items_on_artist_id", using: :btree
   add_index "items", ["category_id"], name: "index_items_on_category_id", using: :btree
+  add_index "items", ["user_id"], name: "index_items_on_user_id", using: :btree
 
   create_table "order_items", force: :cascade do |t|
     t.integer  "order_id"
@@ -73,8 +66,8 @@ ActiveRecord::Schema.define(version: 20160114222006) do
     t.integer  "role",            default: 0
   end
 
-  add_foreign_key "items", "artists"
   add_foreign_key "items", "categories"
+  add_foreign_key "items", "users"
   add_foreign_key "order_items", "items"
   add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "users"
