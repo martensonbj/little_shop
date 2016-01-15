@@ -38,6 +38,12 @@ FactoryGirl.define do
     last_name
     username "user"
     password "password"
+    role 0
+
+    factory :admin do
+      username "admin"
+      role 2
+    end
   end
 
   sequence :name, %w(a b c).cycle do |n|
