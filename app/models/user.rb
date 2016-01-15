@@ -7,5 +7,11 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :items
 
+  scope :artists, -> { where(role: 1) }
+
   enum role: %w(default artist admin)
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

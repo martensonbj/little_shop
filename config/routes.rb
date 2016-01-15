@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     get "/dashboard", to: "users#show"
   end
 
+  get "/artists", to: "artists#index"
+
   get "/cart", to: "cart_items#index"
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
