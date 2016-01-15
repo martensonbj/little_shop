@@ -2,11 +2,7 @@ require "test_helper"
 
 class AdminCanLoginToAdminDashboardTest < ActionDispatch::IntegrationTest
   test "admins logs in and sees admin dashboard" do
-    admin = User.create(first_name: "Admin",
-                     last_name: "Admin",
-                     username: "admin",
-                     password: "password",
-                     role: 2)
+    admin = create(:admin)
 
     visit login_path
     fill_in "Username", with: admin.username
