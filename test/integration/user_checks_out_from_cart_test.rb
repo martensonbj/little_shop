@@ -21,7 +21,7 @@ class UserChecksOutFromCartTest < ActionDispatch::IntegrationTest
 
     assert_equal 1, Order.count
 
-    assert_equal orders_path, current_path
+    assert_equal user_orders_path(user), current_path
 
     assert page.has_content?("Order was successfully placed")
     assert page.has_content?(@items.first.title)
@@ -40,7 +40,7 @@ class UserChecksOutFromCartTest < ActionDispatch::IntegrationTest
 
     assert_equal 1, Order.count
 
-    assert_equal orders_path, current_path
+    assert_equal user_orders_path(user), current_path
 
     assert page.has_content?("Order was successfully placed")
     assert page.has_content?(@items.first.title)

@@ -3,4 +3,4 @@
 <h4>Name: <%= current_user.first_name %> <%= current_user.last_name %></h4>
 <h4>Username: <%= current_user.username %></h4>
 
-<h5><%= link_to "View Past Orders", orders_path %></h5>
+<h5><%= link_to "View Past Orders", user_orders_path(current_user) %></h5>

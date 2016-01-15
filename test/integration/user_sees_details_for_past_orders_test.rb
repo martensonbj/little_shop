@@ -8,18 +8,20 @@ class UserSeesDetailsForPastOrdersTest < ActionDispatch::IntegrationTest
     add_items_to_cart_and_visit_shopping_cart(2)
     click_on "Checkout"
 
-    visit orders_path
+    visit user_orders_path(user)
     order = Order.first
 
     assert page.has_content?(order.id)
     assert page.has_content?(order.total)
-    assert page.has_link?("Order ID: #{order.id}", href: order_path(order))
+    assert page.has_link?("Order ID:
+                          #{order.id}", href: user_order_path(user, order))
     click_on "Order ID: #{order.id}"
 
     @items.each do |item|
       assert page.has_content?(item.title)
       assert page.has_content?("Quantity: 1")
-      assert page.has_content?("Subtotal: #{item.price * 1}")
+      assert page.has_content?("Subtotal:
+                                #{item.price * 1}")
       assert page.has_link?("#{item.title}", href: item_path(item))
     end
 

@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
+  before_action :require_user, only: [:index, :show]
+
   def index
-    @orders = Order.where(user_id: current_user.id).includes(:items)
+    @orders = Order.where(user_id:     current_user.id).includes(:items)
   end
 
   def create
@@ -17,11 +19,17 @@ class OrdersController < ApplicationController
 
       @cart.contents.clear
       flash[:success] = "Order was successfully placed"
-      redirect_to orders_path(order_id: order.id)
+      redirect_to user_orders_path(current_user, order_id: order.id)
     end
   end
 
   def show
     @order = Order.find(params[:id])
+  end
+
+  private
+
+  def require_user
+    render file: "public/404" unless current_user.id == params[:user_id].to_i
   end
 end

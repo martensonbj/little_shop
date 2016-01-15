@@ -36,7 +36,7 @@ FactoryGirl.define do
   factory :user do
     first_name
     last_name
-    username "user"
+    username
     password "password"
     role 0
 
@@ -64,5 +64,9 @@ FactoryGirl.define do
 
   sequence :price do |n|
     0 + n
+  end
+
+  sequence :username do |n|
+    "username#{n}"
   end
 end
