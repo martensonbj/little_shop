@@ -51,9 +51,15 @@ h2 {
   background-color: red
 }
 
+.landing_buttons {
+  position: relative;
+  top: 200px;
+}
+
 .btn_landing_page {
   background-color: rgba(255,255,255,0.8)!important;
   height: 70px!important;
+  padding: 0px;
 }
 
 .btn_landing_page:hover {
@@ -61,31 +67,29 @@ h2 {
 }
 
 .index_button a {
-    color: #645352;
-    position: relative;
-    top: 15px;
-    font-size: 15px;
+    display: block;
+    height: 100%;
+    padding: 20px;
+    color: #686868;
 }
 
-#create_acct_button a {
-    position: relative;
-    top: 10px;
+.index_button a:hover {
+  color: #000;
 }
 
-.index_button {
-  position: relative;
-  top: 250px;
-}
-
-#create_acct_button {
-    height: 50px!important;
-    margin-top: 15px;
-    width: 500px;
+#browse_artist_button {
+  width: 215px;
 }
 
 #browse_cat_button {
-    margin-left: 35px;
+  width: 215px;
 }
+
+#create_acct_button {
+  margin-top: 5px;
+  width: 435px;
+}
+
 
 .grid-item {
   width: 315px;
