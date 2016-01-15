@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class GuestCanViewItemsSortedByArtistTest < ActionDispatch::IntegrationTest
   test "items are shown under their assigned artist" do
