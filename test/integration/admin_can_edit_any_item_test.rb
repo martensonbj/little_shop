@@ -26,6 +26,7 @@ class AdminCanEditAnyItemTest < ActionDispatch::IntegrationTest
 
     assert_equal admin_item_path(Item.last), current_path
     assert page.has_content? "Meat"
+    assert page.has_content? "Status: inactive"
     assert page.has_content? artist.first_name
   end
 end
