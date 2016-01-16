@@ -8,7 +8,7 @@ class AdminModifyUserDataTest < ActionDispatch::IntegrationTest
     fill_in "Username", with: admin.username
     fill_in "Password", with: admin.password
     within "form" do
-        click_on "Login"
+      click_on "Login"
     end
 
     visit admin_dashboard_path
@@ -23,9 +23,5 @@ class AdminModifyUserDataTest < ActionDispatch::IntegrationTest
     assert_equal admin_dashboard_path, current_path
     assert page.has_content? "Gotham"
     assert page.has_content? "NY"
-  end
-
-  test "admin cannot modify user data" do
-
   end
 end
