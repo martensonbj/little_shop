@@ -3,6 +3,8 @@ class Order < ActiveRecord::Base
   has_many :order_items
   has_many :items, through: :order_items
 
+  enum status: %w(ordered paid cancelled completed)
+
   def date
     local_time_zone = Time.now.getlocal.zone
     created_at.in_time_zone(local_time_zone).strftime("%b %d, %Y %I:%M%P")
