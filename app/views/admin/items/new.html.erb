@@ -1,29 +1,3 @@
 <h2>Create Items</h2>
 
-<%= form_for [:admin, @item] do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.label :image_path %>
-  <%= f.text_field :image_path %>
-
-  <%= f.label :price %>
-  <%= f.text_field :price %>
-
-  <%= f.label :category %>
-  <%= f.fields_for :category, @item.category do |category_form| %>
-  <%= f.select "category_id", options_from_collection_for_select(Category.all, "id", "name"), {:prompt => nil}, {:multiple => false} %>
-  <% end %>
-
-  <%= f.label :user %>
-  <%= f.fields_for :user, @item.user do |user_form| %>
-  <%= f.select "user_id", options_from_collection_for_select(User.all.artists, "id", "first_name"), {:prompt => nil}, {:multiple => false} %>
-  <% end %>
-  <br>
-
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-
-  <br>
-  <%= f.submit "Complete", :class=> "waves-effect waves-light btn green accent-4" %>
-<% end %>
+<%= render partial: "form" %>

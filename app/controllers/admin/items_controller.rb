@@ -42,6 +42,8 @@ class Admin::ItemsController < Admin::BaseController
                                  :image_path,
                                  :price,
                                  :description,
-                                 :category_id, :user_id)
+                                 :category_id,
+                                 :user_id,
+                                 :status)
   end
 end

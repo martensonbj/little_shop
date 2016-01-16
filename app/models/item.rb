@@ -13,6 +13,8 @@ class Item < ActiveRecord::Base
 
   before_save :check_user_type
 
+  enum status: %w(inactive active)
+
   private
 
   def check_user_type
