@@ -14,12 +14,15 @@ class CartItemsController < ApplicationController
   end
 
   def update
-    if quantity_is_negative
-      flash[:error] = "Item quantity cannot be negative"
+    if quantity_is_invalid
+      flash[:error] = "Invalid item quantity"
+    elsif quantity_is_zero
+      item = Item.find(params[:id])
+      @cart.delete_item(item.id)
     else
       @cart.update_quantity(params[:id], params[:quantity])
     end
-    
+
     redirect_to cart_path
   end
 
@@ -35,7 +38,19 @@ class CartItemsController < ApplicationController
 
   private
 
+  def quantity_is_invalid
+    quantity_is_negative || quantity_is_not_a_number
+  end
+
   def quantity_is_negative
     params[:quantity].to_i < 0
+  end
+
+  def quantity_is_not_a_number
+    (params[:quantity] =~ /\d/).nil?
+  end
+
+  def quantity_is_zero
+    params[:quantity] == "0"
   end
 end
