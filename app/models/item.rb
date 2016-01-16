@@ -15,6 +15,8 @@ class Item < ActiveRecord::Base
   before_save :check_user_type
   before_save :check_image_path
 
+  enum status: %w(inactive active)
+
   private
 
   def check_user_type
