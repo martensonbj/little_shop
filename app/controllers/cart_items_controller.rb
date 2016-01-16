@@ -14,7 +14,12 @@ class CartItemsController < ApplicationController
   end
 
   def update
-    @cart.update_quantity(params[:id], params[:quantity])
+    if quantity_is_negative
+      flash[:error] = "Item quantity cannot be negative"
+    else
+      @cart.update_quantity(params[:id], params[:quantity])
+    end
+    
     redirect_to cart_path
   end
 
@@ -26,5 +31,11 @@ class CartItemsController < ApplicationController
     flash[:success] = "Successfully removed #{link_to_item} from your cart."
 
     redirect_to cart_path
+  end
+
+  private
+
+  def quantity_is_negative
+    params[:quantity].to_i < 0
   end
 end
