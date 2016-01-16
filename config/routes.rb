@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:show, :index], param: :slug
   resources :cart_items, only: [:create, :destroy, :update]
 
-  resources :users, only: [:new, :create, :show] do
+  resources :users, only: [:new, :create, :show, :edit, :update] do
     get "/cart", to: "cart_items#index"
     resources :orders, only: [:index, :create, :show]
   end

@@ -36,11 +36,11 @@ class Seed
                    username: "#{first_name.downcase}_artist",
                    password: "password",
                    role: 1,
-                   email_address: "#{first_name.downcase}_artist@gmail.com"),
+                   email_address: "#{first_name.downcase}_artist@gmail.com",
                    street_address: "123 Maple Drive",
                    city: "Denver",
                    state: "CO",
-                   zipcode: 80231
+                   zipcode: 80231)
     end
 
     @brenna = User.find_by(first_name: "Brenna")
@@ -132,7 +132,7 @@ class Seed
                    username: "#{first_name.downcase}_user",
                    password: "password",
                    role: 0,
-                   email_address: "#{first_name.downcase}_user@gmail.com"),
+                   email_address: "#{first_name.downcase}_user@gmail.com",
                    street_address: "123 Maple Drive",
                    city: "Denver",
                    state: "CO",
