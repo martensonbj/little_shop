@@ -7,6 +7,7 @@ class Seed
     create_categories
     create_artists
     create_items
+    create_users
   end
 
   def create_categories
@@ -32,7 +33,7 @@ class Seed
 
       User.create!(first_name: first_name,
                    last_name: last_name,
-                   username: "#{first_name}",
+                   username: "#{first_name.downcase}_artist",
                    password: "password",
                    role: 1)
     end
@@ -110,6 +111,23 @@ class Seed
                  image_path: "http://tinyurl.com/hnfhnt9",
                  user_id: @taylor.id,
                  category_id: @digital.id)
+  end
+
+  def create_users
+    artists = ["Brenna Martenson",
+               "Taylor Moore",
+               "Toni Rib"]
+
+    artists.each do |full_name|
+      first_name = full_name.split.first
+      last_name = full_name.split.last
+
+      User.create!(first_name: first_name,
+                   last_name: last_name,
+                   username: "#{first_name.downcase}_user",
+                   password: "password",
+                   role: 0)
+    end
   end
 end
 

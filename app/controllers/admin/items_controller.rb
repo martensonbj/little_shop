@@ -5,6 +5,7 @@ class Admin::ItemsController < Admin::BaseController
 
   def create
     @item = Item.new(item_params)
+
     if @item.save
       redirect_to item_path(@item)
     else
@@ -20,6 +21,7 @@ class Admin::ItemsController < Admin::BaseController
                                  :image_path,
                                  :price,
                                  :description,
-                                 :category_id, :user_id)
+                                 :category_id,
+                                 :user_id)
   end
 end
