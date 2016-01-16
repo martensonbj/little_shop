@@ -31,6 +31,11 @@ class UsersController < ApplicationController
                                  :last_name,
                                  :username,
                                  :password,
-                                 :password_confirmation)
+                                 :password_confirmation,
+                                 :email_address,
+                                 :street_address,
+                                 :city,
+                                 :state,
+                                 :zipcode)
   end
 end

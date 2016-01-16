@@ -27,6 +27,11 @@ FactoryGirl.define do
     username
     password "password"
     role 0
+    email_address
+    street_address "123 Maple Drive"
+    city "Denver"
+    state "CO"
+    zipcode 80231
 
     factory :admin do
       username "admin"
@@ -55,6 +60,10 @@ FactoryGirl.define do
 
   sequence :name, %w(a b c).cycle do |n|
     "name#{n}"
+  end
+
+  sequence :email_address do |n|
+    "example#{n}@gmail.com"
   end
 
   sequence :first_name do |n|
