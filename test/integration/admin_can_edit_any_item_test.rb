@@ -22,7 +22,7 @@ class AdminCanEditAnyItemTest < ActionDispatch::IntegrationTest
     select "#{item.category.name}", from: "item_category_id"
     select "#{artist.first_name}", from: "item_user_id"
     choose "Inactive"
-    click_on "Complete"
+    click_on "Update Item"
 
     assert_equal admin_item_path(Item.last), current_path
     assert page.has_content? "Meat"
