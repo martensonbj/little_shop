@@ -8,7 +8,7 @@ class GuestCreatesLoginWithIncorrectCreditialsTest < ActionDispatch::Integration
     fill_in "Username", with: "Batman"
     fill_in "Password", with: "darkness"
     fill_in "Password confirmation", with: "parents_dead"
-    click_on "Create Account"
+    click_on "Create User"
 
     assert_equal users_path, current_path
     assert page.has_content? "Password confirmation doesn't match Password"
@@ -23,7 +23,7 @@ class GuestCreatesLoginWithIncorrectCreditialsTest < ActionDispatch::Integration
     fill_in "Username", with: user.username
     fill_in "Password", with: "darkness"
     fill_in "Password confirmation", with: "darkness"
-    click_on "Create Account"
+    click_on "Create User"
 
     assert_equal users_path, current_path
     assert page.has_content? "Username has already been taken"

@@ -1,0 +1,8 @@
+<h4>Name: <%= current_user.first_name %> <%= current_user.last_name %></h4>
+<h4>Username: <%= current_user.username %></h4>
+<h4>Email: <%= current_user.email_address %></h4>
+
+<h4>Address:</h4>
+<h5><%= current_user.street_address %></h5>
+<h5><%= current_user.city %>, <%= current_user.state %> <%= current_user.zipcode %></h5>
+<%= link_to "Edit Info", edit_user_path(current_user) %>
