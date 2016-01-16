@@ -4,14 +4,16 @@ class Item < ActiveRecord::Base
   has_many :order_items
   has_many :orders, through: :order_items
 
-  validates :title, presence: true
-  validates :image_path, presence: true
+  validates :title, presence: true,
+                    uniqueness: true
   validates :user_id, presence: true
   validates :category_id, presence: true
-  validates :price, presence: true
+  validates :price, presence: true,
+                    numericality: { greater_than: 0 }
   validates :description, presence: true
 
   before_save :check_user_type
+  before_save :check_image_path
 
   enum status: %w(inactive active)
 
@@ -19,5 +21,10 @@ class Item < ActiveRecord::Base
 
   def check_user_type
     User.find(user_id).artist?
+  end
+
+  def check_image_path
+    photo_not_available = "https://www.weefmgrenada.com/images/na4.jpg"
+    self.image_path = photo_not_available unless image_path
   end
 end

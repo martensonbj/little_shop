@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class AdminCanEditAnyItemTest < ActionDispatch::IntegrationTest
   test "admin edit other peoples items" do
