@@ -25,6 +25,6 @@ class OrdersController < ApplicationController
   private
 
   def require_user
-    render file: "public/404" unless current_user.id == params[:user_id].to_i
+    render file: "public/404" unless current_user.slug == params[:user_id]
   end
 end
