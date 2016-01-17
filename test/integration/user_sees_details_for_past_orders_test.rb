@@ -20,12 +20,12 @@ class UserSeesDetailsForPastOrdersTest < ActionDispatch::IntegrationTest
     @items.each do |item|
       assert page.has_content?(item.title)
       assert page.has_content?("Quantity: 1")
-      assert page.has_content?("Subtotal: #{item.price * 1}")
+      assert page.has_content?("Subtotal: $#{item.price * 1}")
       assert page.has_link?("#{item.title}", href: item_path(item))
     end
 
     assert page.has_content?("Status: Ordered")
-    assert page.has_content?("Total: #{order.total}")
+    assert page.has_content?("Total: $#{order.total}")
     assert page.has_content?("Ordered: #{order.date}")
   end
 end
