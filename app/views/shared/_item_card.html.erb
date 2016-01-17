@@ -8,7 +8,12 @@
       <%= button_to "Add to Cart", cart_items_path(item_id: item.id), class: "btn waves-effect waves-light" %>
       <% if current_user && current_user.admin? %>
         <%= link_to "Edit", edit_admin_item_path(item), class: "btn waves-effect waves-light" %>
-        <h5>Status: <%= item.status %></h5>
+
+        <% if item.active? %>
+          <h5 class="light-green-text text-accent-4">Status: <%= item.status %></h5>
+        <% else %>
+          <h5 class="grey-text">Status: <%= item.status %></h5>
+        <% end %>
       <% end %>
     </div>
   </div>
