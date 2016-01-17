@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :items, only: [:new, :create, :edit, :update, :index, :show]
   end
 
-  get "/artists", to: "artists#index"
+  resources :artists, only: [:index, :show]
 
   get "/cart", to: "cart_items#index"
   get "/login", to: "sessions#new"
