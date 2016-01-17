@@ -6,8 +6,7 @@ class Order < ActiveRecord::Base
   enum status: %w(ordered paid cancelled completed)
 
   def date
-    local_time_zone = Time.now.getlocal.zone
-    created_at.in_time_zone(local_time_zone).strftime("%b %d, %Y %I:%M%P")
+    created_at.strftime("%b %d, %Y %I:%M%P")
   end
 
   def total
