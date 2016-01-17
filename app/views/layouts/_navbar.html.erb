@@ -28,19 +28,34 @@
       <% else %>
         <li><%= link_to "Login", login_path %></li>
       <% end %>
-      <li><%= link_to "View All Items", items_path %></li>
-      <li><%= link_to "Browse by Artist", artists_path %></li>
-      <li><%= link_to "Browse by Category", categories_path %></li>
+
+      <% if current_user && current_user.admin? %>
+        <li><%= link_to "View All Items", admin_items_path %></li>
+        <li><%= link_to "Browse by Artist", artists_path %></li>
+        <li><%= link_to "Browse by Category", categories_path %></li>
+      <% else %>
+        <li><%= link_to "View All Items", items_path %></li>
+        <li><%= link_to "Browse by Artist", artists_path %></li>
+        <li><%= link_to "Browse by Category", categories_path %></li>
+      <% end %>
     </ul>
 
     <!-- MOBILE NAV -->
     <ul class="side-nav" id="mobile-demo">
       <li><strong><%= link_to "RoughSketch", root_path %></strong></li>
 
-      <li><%= link_to "View All Items", items_path %></li>
-      <li><%= link_to "Browse by Artist", artists_path %></li>
-      <li><%= link_to "Browse by Category", categories_path %></li>
+      <% if current_user && current_user.admin? %>
+        <li><%= link_to "View All Items", admin_items_path %></li>
+        <li><%= link_to "Browse by Artist", artists_path %></li>
+        <li><%= link_to "Browse by Category", categories_path %></li>
+      <% else %>
+        <li><%= link_to "View All Items", items_path %></li>
+        <li><%= link_to "Browse by Artist", artists_path %></li>
+        <li><%= link_to "Browse by Category", categories_path %></li>
+      <% end %>
+
       <li><%= link_to "View Cart", cart_path %></li>
+
       <% if current_user && current_user.admin? %>
         <li class="right-align">
           <%= link_to "Logged in as #{current_user.first_name} (admin)", admin_dashboard_path(current_user) , class: "login_confirm"%>
@@ -50,6 +65,7 @@
           <%= link_to "Logged in as #{current_user.first_name}", dashboard_path(current_user) , class: "login_confirm"%>
         </li>
       <% end %>
+
       <% if session[:user_id] %>
         <li><%= link_to "Logout", logout_path %></li>
       <% else %>
