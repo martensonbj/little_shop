@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class UserSeesItemsByCategoryTest < ActionDispatch::IntegrationTest
   test "user sees only items specified by category" do
