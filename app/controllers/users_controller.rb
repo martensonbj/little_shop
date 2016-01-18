@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  require "states_helper"
+  before_action :set_user, only: [:edit, :update]
+
   def index
   end
 
@@ -25,12 +28,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find_by_slug(params[:slug])
   end
 
   def update
-    @user = User.find_by_slug(params[:slug])
-
     if @user.update_attributes(user_params)
       if current_user.admin?
         redirect_to admin_dashboard_path
@@ -44,6 +44,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def set_user
+    @user = User.find(current_user.id)
+  end
 
   def user_params
     params.require(:user).permit(:first_name,

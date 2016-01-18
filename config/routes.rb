@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get "/dashboard", to: "users#show", param: :slug
     resources :items, only: [:new, :create, :edit, :update, :index, :show]
+    resources :orders, only: [:index, :update]
   end
 
   resources :artists, only: [:index, :show], param: :slug
