@@ -7,6 +7,10 @@ h2 {
     letter-spacing: 1.1rem;
     font-family: 'Amatic SC', cursive;
 }
+/*
+nav ul a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}*/
 
 .remove-item-button {
   font-size: 14px;
