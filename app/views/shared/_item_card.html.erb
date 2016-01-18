@@ -5,7 +5,11 @@
     </a>
     <div class="card-action">
       <span class="card-title"><a class="black-text title-links" href="/items/<%= item.id %>"><%= item.title %></a></span>
-      <%= button_to "Add to Cart", cart_items_path(item_id: item.id), class: "btn waves-effect waves-light" %>
+      <% if item.status == "active" %>
+        <%= button_to "Add to Cart", cart_items_path(item_id: item.id), class: "btn waves-effect waves-light" %>
+      <% else %>
+        <p class="red-text">This item is currently out of stock.</p>
+      <% end %>
       <% if current_user && current_user.admin? %>
         <%= link_to "Edit", edit_admin_item_path(item), class: "btn waves-effect waves-light" %>
         <h5>Status: <%= item.status %></h5>

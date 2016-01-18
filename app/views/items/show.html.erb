@@ -11,7 +11,10 @@
     <p>
       <%= @item.description %>
     </p>
-    <%= button_to "Add to Cart", cart_items_path(item_id: @item.id), class: "btn waves-effect waves-light" %>
-
+    <% if @item.status == "active" %>
+      <%= button_to "Add to Cart", cart_items_path(item_id: @item.id), class: "btn waves-effect waves-light" %>
+    <% else %>
+      <p class="red-text">This item is currently out of stock.</p>
+    <% end %>
   </div>
 </div>
