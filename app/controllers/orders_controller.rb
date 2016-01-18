@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :require_user, only: [:index, :show]
 
   def index
-    @orders = Order.where(user_id:     current_user.id).includes(:items)
+    @orders = Order.where(user_id: current_user.id).includes(:items)
   end
 
   def create
