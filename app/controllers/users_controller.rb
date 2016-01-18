@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
   def show
     if current_user
-      @user = current_user
+      @user = User.find_by_slug(params[:slug])
     else
       render file: "public/404"
     end
@@ -59,6 +59,7 @@ class UsersController < ApplicationController
                                  :street_address,
                                  :city,
                                  :state,
-                                 :zipcode)
+                                 :zipcode,
+                                 :slug)
   end
 end

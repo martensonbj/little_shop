@@ -10,11 +10,10 @@ class UserSeesDetailsForPastOrdersTest < ActionDispatch::IntegrationTest
 
     visit user_orders_path(user)
     order = Order.first
-
     assert page.has_content?(order.id)
     assert page.has_content?(order.total)
     assert page.has_link?("Order ID: #{order.id}",
-                          href: user_order_path(user, order))
+                          href: user_order_path(user.slug, order))
     click_on "Order ID: #{order.id}"
 
     @items.each do |item|
