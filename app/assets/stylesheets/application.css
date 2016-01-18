@@ -12,6 +12,22 @@ nav ul a:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }*/
 
+.status_ordered{
+  color: yellow;
+}
+
+.status_paid{
+  color: green;
+}
+
+.status_cancelled{
+  color: red;
+}
+
+.status_completed{
+  color: black;
+}
+
 .remove-item-button {
   font-size: 14px;
   position: relative;

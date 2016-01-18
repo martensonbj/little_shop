@@ -38,6 +38,16 @@ FactoryGirl.define do
       role 2
     end
 
+    factory :user_with_orders do
+      transient do
+        order_count 2
+      end
+
+      after(:create) do |user, evaluator|
+        create_list(:order, evaluator.order_count, user: user)
+      end
+    end
+
     factory :artist do
       username { generate(:artist_username) }
       role 1
@@ -52,6 +62,17 @@ FactoryGirl.define do
         end
       end
     end
+  end
+
+  factory :order_item do
+    order
+    item
+    quantity 1
+  end
+
+  factory :order do
+    user
+    status "ordered"
   end
 
   sequence :artist_username do |n|
