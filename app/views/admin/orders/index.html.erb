@@ -1,0 +1,21 @@
+<h2>All Orders</h2>
+<table class="highlight">
+    <thead>
+      <tr>
+          <th data-field="id">Order ID</th>
+          <th data-field="name">Username</th>
+          <th data-field="status">Order Status</th>
+          <th data-field="price">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @orders.reverse.each do |order| %>
+        <tr id="order_<%= order.id %>" data-link="<%= admin_order_path(order) %>">
+        <td><%= order.id %></td>
+        <td><%= order.user.username  %></td>
+        <td class="status_<%=order.status%>"><%= order.status %></td>
+        <td><%= order.date %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
