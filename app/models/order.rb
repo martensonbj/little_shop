@@ -18,4 +18,20 @@ class Order < ActiveRecord::Base
   def quantity_of_item(item_id)
     order_items.find_by(item_id: item_id).quantity
   end
+
+  def self.count_of_ordered
+    where(status: 0).count
+  end
+
+  def self.count_of_paid
+    where(status: 1).count
+  end
+
+  def self.count_of_cancelled
+    where(status: 2).count
+  end
+
+  def self.count_of_completed
+    where(status: 3).count
+  end
 end
