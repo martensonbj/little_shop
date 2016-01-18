@@ -72,11 +72,15 @@ FactoryGirl.define do
 
   factory :order do
     user
-    status "ordered"
+    status
   end
 
   sequence :artist_username do |n|
     "artist#{n}"
+  end
+
+  sequence :status, %w(ordered paid cancelled completed).cycle do |n|
+    n
   end
 
   sequence :name, %w(a b c).cycle do |n|

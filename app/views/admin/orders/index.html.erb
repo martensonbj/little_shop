@@ -1,21 +1,46 @@
 <h2>All Orders</h2>
+<div id= "totals" class="row center-align">
+  <div class="col s3 status_ordered">
+    <p>Ordered: <%= @orders.count_of_ordered %></p>
+  </div>
+  <div class="col s3 status_paid">
+    <p>Paid: <%= @orders.count_of_paid %></p>
+  </div>
+  <div class="col s3 status_completed">
+    <p>Completed: <%= @orders.count_of_completed %></p>
+  </div>
+  <div class="col s3 status_cancelled">
+    <p>Cancelled: <%= @orders.count_of_cancelled %></p>
+  </div>
+</div>
+
 <table class="highlight">
   <thead>
     <tr>
-        <th data-field="id">Order ID</th>
-        <th data-field="name">Username</th>
-        <th data-field="status">Order Status</th>
-        <th data-field="price">Date</th>
+      <th>Order ID</th>
+      <th>Username</th>
+      <th>Order Status</th>
+      <th>Date</th>
+      <th>Update Status</th>
     </tr>
   </thead>
   <tbody>
   <% @orders.reverse.each do |order| %>
-      <tr id="order_<%= order.id %>" data-link="<%= user_order_path(order.user, order) %>">
-      <td><%= order.id %></td>
-      <td><%= order.user.username  %></td>
-      <td class="status_<%=order.status%>"><%= order.status %></td>
-      <td><%= order.date %></td>
-    </tr>
+      <tr id="order_<%= order.id %>">
+        <td><%= link_to order.id, user_order_path(order.user, order) %></td>
+        <td><%= order.user.username  %></td>
+        <td class="status_<%=order.status%>"><%= order.status %></td>
+        <td><%= order.date %></td>
+        <td>
+          <% if order.ordered? %>
+            <%= link_to "Mark as Paid", admin_order_path(order, status: 1), method: :put %>
+            <%= link_to "Cancel", admin_order_path(order, status: 2), method: :put %>
+          <% elsif order.paid? %>
+            <%= link_to "Mark as Completed", admin_order_path(order, status: 3), method: :put %>
+            <%= link_to "Cancel", admin_order_path(order, status: 2), method: :put %>
+          <% end %>
+        </td>
+      </tr>
     <% end %>
   </tbody>
 </table>
