@@ -17,7 +17,7 @@ class UserCanCreateAccountTest < ActionDispatch::IntegrationTest
     fill_in "Email address", with: "brenna@awesome.com"
     fill_in "Street address", with: "123 Maple Drive"
     fill_in "City", with: "Denver"
-    fill_in "State", with: "CO"
+    select('Colorado', :from => 'user_state')
     fill_in "Zipcode", with: "80231"
     fill_in "Username", with: "brenna"
     fill_in "Password", with: "password"
