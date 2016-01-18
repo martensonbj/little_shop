@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for @user, :html => {class: "profile_form"} do |f| %>
   <%= render partial: 'shared/errors', locals: {target: @user} %>
 
   <%= f.label :first_name %>
@@ -22,7 +22,7 @@
   <br>
 
   <%= f.label :state %>
-  <%= f.text_field :state %>
+  <%= f.select(:state, options_for_select(us_states, "MN")) %>
   <br>
 
   <%= f.label :zipcode %>
