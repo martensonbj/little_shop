@@ -7,11 +7,11 @@
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <% if current_user && current_user.admin? %>
         <li class="right-align">
-          <%= link_to "Logged in as #{current_user.first_name} (admin)", admin_dashboard_path(current_user) , class: "login_confirm"%>
+          <%= link_to "Logged in as #{current_user.first_name} (admin)", admin_dashboard_path(current_user.slug) , class: "login_confirm"%>
         </li>
       <% elsif current_user %>
         <li class="right-align">
-          <%= link_to "Logged in as #{current_user.first_name}", dashboard_path(current_user) , class: "login_confirm"%>
+          <%= link_to "Logged in as #{current_user.first_name}", dashboard_path(current_user.slug) , class: "login_confirm"%>
         </li>
       <% end %>
       <li><a href="/cart" id="shopping_cart"><i class="material-icons">shopping_cart</i></a></li>
@@ -36,11 +36,11 @@
       <li><%= link_to "View Cart", cart_path %></li>
       <% if current_user && current_user.admin? %>
         <li class="right-align">
-          <%= link_to "Logged in as #{current_user.first_name} (admin)", admin_dashboard_path(current_user) , class: "login_confirm"%>
+          <%= link_to "Logged in as #{current_user.first_name} (admin)", admin_dashboard_path(current_user.slug) , class: "login_confirm"%>
         </li>
       <% elsif current_user %>
         <li class="right-align">
-          <%= link_to "Logged in as #{current_user.first_name}", dashboard_path(current_user) , class: "login_confirm"%>
+          <%= link_to "Logged in as #{current_user.first_name}", dashboard_path(current_user.slug) , class: "login_confirm"%>
         </li>
       <% end %>
       <% if session[:user_id] %>
