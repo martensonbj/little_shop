@@ -61,7 +61,6 @@ FactoryGirl.define do
           create_list(:item, evaluator.item_count, user: user)
         end
       end
-
     end
   end
 

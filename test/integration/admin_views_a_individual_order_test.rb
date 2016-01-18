@@ -8,7 +8,7 @@ class AdminViewAIndividualOrderTest < ActionDispatch::IntegrationTest
     item = order.items.first
     ApplicationController.any_instance.stubs(:current_user).returns(admin)
 
-    visit admin_order_path(order)
+    visit user_order_path(user, order)
 
     assert page.has_content? user.first_name
     assert page.has_content? user.last_name
