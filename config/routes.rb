@@ -3,13 +3,15 @@ Rails.application.routes.draw do
   resources :categories, only: [:show, :index], param: :slug
   resources :cart_items, only: [:create, :destroy, :update]
 
-  resources :users, only: [:new, :create, :show, :edit, :update], param: :slug do
+  resources :users,
+            only: [:new, :create, :show, :edit, :update],
+            param: :slug do
     get "/cart", to: "cart_items#index"
     resources :orders, only: [:index, :create, :show]
   end
 
-  namespace :admin  do
-    get "/dashboard", to: "users#show"
+  namespace :admin do
+    get "/dashboard", to: "users#show", param: :slug
     resources :items, only: [:new, :create, :edit, :update, :index, :show]
   end
 
@@ -19,7 +21,7 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   get "/logout", to: "sessions#destroy"
-  get "/dashboard", to: "users#show"
+  get "/dashboard", to: "users#show", param: :slug
 
   root "home#index"
 end

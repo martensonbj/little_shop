@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  before_create :generate_slug
   has_secure_password
   validates :username, presence: true,
                        uniqueness: true
@@ -12,7 +13,6 @@ class User < ActiveRecord::Base
   validates :zipcode, presence: true
   has_many :orders
   has_many :items
-  before_create :generate_slug
 
   scope :artists, -> { where(role: 1) }
 

@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :require_user, only: [:index, :show]
 
   def index
-    @orders = Order.where(user_id:     current_user.slug).includes(:items)
+    @orders = Order.where(user_id: current_user.id).includes(:items)
   end
 
   def create
@@ -25,6 +25,6 @@ class OrdersController < ApplicationController
   private
 
   def require_user
-    render file: "public/404" unless current_user.slug == params[:slug]
+    render file: "public/404" unless current_user.slug == params[:user_slug]
   end
 end

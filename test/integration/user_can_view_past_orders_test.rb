@@ -10,7 +10,7 @@ class UserCanViewPastOrdersTest < ActionDispatch::IntegrationTest
     add_items_to_cart_and_visit_shopping_cart(1)
     click_on "Checkout"
 
-    visit user_orders_path(user)
+    visit user_orders_path(user.slug)
 
     assert_equal 2, Order.all.count
     assert page.has_content?(Order.first.id)
