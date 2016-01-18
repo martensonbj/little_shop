@@ -41,7 +41,6 @@ FactoryGirl.define do
     factory :user_with_orders do
       transient do
         order_count 2
-
       end
 
       after(:create) do |user, evaluator|

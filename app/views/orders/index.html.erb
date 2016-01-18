@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col s12 m12">
     <% @orders.reverse.each do |order| %>
-      <%= render partial: "order_card", locals: { order: order } %>
+      <%= render partial: "shared/order_card", locals: { order: order } %>
     <% end %>
     <br>
   </div> <!-- col s12 -->
