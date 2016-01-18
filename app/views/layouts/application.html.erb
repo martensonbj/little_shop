@@ -30,7 +30,7 @@
       });
     });
   </script>
-  
+
   <script type="text/javascript">
   $(document).ready(function() {
     $('select').material_select();
@@ -42,6 +42,10 @@
     $(".button-collapse").sideNav();
   })
   </script>
-
+  <script>
+  $("tr").click(function() {
+    window.location = $(this).data("link")
+  })
+  </script>
   </body>
 </html>
