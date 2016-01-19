@@ -12,7 +12,7 @@ class ArtistCanUploadPhotoTest < ActionDispatch::IntegrationTest
     assert_equal new_user_item_path(artist), current_path
 
     fill_in "Title", with: "Meat"
-    attach_file("File upload", fixture_image_path)
+    attach_file("item_file_upload", fixture_image_path)
     fill_in "Price", with: "10"
     fill_in "Description", with: "Salad? That's what my food eats"
     select "#{category.name}", from: "item_category_id"
@@ -29,6 +29,6 @@ class ArtistCanUploadPhotoTest < ActionDispatch::IntegrationTest
   end
 
   def fixture_image_path
-    Rails.root.join('test', 'helpers', 'test_image.jpg')
+    Rails.root.join("test", "helpers", "test_image.jpg")
   end
 end
