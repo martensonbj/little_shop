@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :require_arist, only: [:new, :create]
+  before_action :require_artist, only: [:new, :create, :edit, :update]
 
   def index
     @items = Item.all
@@ -24,6 +24,21 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    item = Item.find(params[:id])
+
+    if item.update(item_params)
+      redirect_to item
+    else
+      render :new
+      flash[:alert] = "All fields must be filled in."
+    end
+  end
+
   private
 
   def item_params
@@ -35,7 +50,7 @@ class ItemsController < ApplicationController
                                  :status)
   end
 
-  def require_arist
+  def require_artist
     render file: "/public/404" unless current_artist?
   end
 end
