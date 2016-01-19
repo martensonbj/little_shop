@@ -1,8 +1,15 @@
+<div class="filter">
+  <label>Filter By Category:</label>
+  <%= text_field :category, :filter_name %>
+</div>
+
 <% @categories.each do |category| %>
-  <h2><%= link_to category.name, category_path(category) %></h2>
-  <div id="<%= category.name %>" class="grid">
-    <% category.items.each do |item| %>
-      <%= render partial: 'shared/item_card', locals: { item: item } %>
-    <% end %>
+  <div class="category">
+    <h2><%= link_to category.name, category_path(category) %></h2>
+    <div id="<%= category.name %>" class="grid">
+      <% category.items.each do |item| %>
+        <%= render partial: 'shared/item_card', locals: { item: item } %>
+      <% end %>
+    </div>
   </div>
 <% end %>
