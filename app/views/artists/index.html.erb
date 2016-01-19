@@ -1,13 +1,20 @@
+<div class="filter">
+  <label>Filter By Artist:</label>
+  <%= text_field :artist, :filter_name %>
+</div>
+
 <% @artists.each do |artist| %>
-  <h2>
-    <% if artist.file_upload_file_name %>
-    <%= image_tag artist.file_upload.url(:thumb), class: "artist_thumb"%>
-    <% end %>
-    <%= link_to artist.full_name, artist_path(artist) %>
-  </h2>
-  <div id="<%= artist.username %>" class="grid">
-    <% artist.items.each do |item| %>
-      <%= render partial: 'shared/item_card', locals: { item: item } %>
-    <% end %>
+  <div class="artist">
+    <h2>
+      <% if artist.file_upload_file_name %>
+      <%= image_tag artist.file_upload.url(:thumb), class: "artist_thumb"%>
+      <% end %>
+      <%= link_to artist.full_name, artist_path(artist) %>
+    </h2>
+    <div id="<%= artist.username %>" class="grid">
+      <% artist.items.each do |item| %>
+        <%= render partial: 'shared/item_card', locals: { item: item } %>
+      <% end %>
+    </div>
   </div>
 <% end %>

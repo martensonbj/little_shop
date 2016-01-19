@@ -8,8 +8,22 @@ h2 {
     font-family: 'Amatic SC', cursive;
 }
 
+select {
+  display: block;
+}
+
+/* ORDERS */
+
 .status_ordered{
-  color: yellow;
+  color: #ffa000;
+}
+
+#order_link1 {
+  padding-right: 40px;
+}
+
+#order_link2 {
+  padding-left: 40px;
 }
 
 .status_paid{
@@ -24,6 +38,13 @@ h2 {
   color: black;
 }
 
+#order_status {
+  width: 200px;
+  margin: 5px auto 20px auto;
+}
+
+/* BUTTONS */
+
 .remove-item-button {
   font-size: 14px;
   position: relative;
@@ -37,6 +58,10 @@ h2 {
 
 .img-small {
   max-width: 100%;
+}
+
+.highlight tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: white;
 }
 
 #price {
