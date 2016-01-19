@@ -8,6 +8,7 @@ Rails.application.routes.draw do
             param: :slug do
     get "/cart", to: "cart_items#index"
     resources :orders, only: [:index, :create, :show]
+    resources :items, only: [:new, :create, :edit, :update]
   end
 
   namespace :admin do

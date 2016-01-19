@@ -41,5 +41,19 @@
   <%= f.password_field :password_confirmation %>
   <br>
 
+  <% if current_admin? %>
+    <%= f.label :role %>
+    <%= f.select :role, options_for_select(["default", "artist", "admin"], selected: "admin") %>
+    <br>
+  <% elsif current_user %>
+    <%= f.label :role %>
+    <%= f.select :role, options_for_select(["default", "artist"], selected: current_user.role) %>
+    <br>
+  <% else %>
+    <%= f.label :role %>
+    <%= f.select :role, options_for_select(["default", "artist"]) %>
+    <br>
+  <% end %>
+
   <%= f.submit class: "wave-effect waves-light btn" %>
 <% end  %>

@@ -8,7 +8,7 @@
     <p>$<%= @item.price %></p>
     <p><%= @item.description %></p>
 
-    <% if current_user && current_user.admin? %>
+    <% if current_admin? %>
       <% if @item.active? %>
         <p class="light-green-text text-accent-4">Status: <%= @item.status %></p>
       <% else %>
@@ -17,9 +17,18 @@
 
       <br>
       <%= link_to "Edit", edit_admin_item_path(@item), class: "btn waves-effect waves-light"%>
+    <% elsif current_artist? && artist_owns_item?(@item) %>
+      <% if @item.active? %>
+        <p class="light-green-text text-accent-4">Status: <%= @item.status %></p>
+      <% else %>
+        <p class="grey-text">Status: <%= @item.status %></p>
+      <% end %>
+
+      <br>
+      <%= link_to "Edit", edit_user_item_path(current_user, @item), class: "btn waves-effect waves-light"%>
     <% end %>
 
-    <% if @item.status == "active" %>
+    <% if @item.active? %>
       <%= button_to "Add to Cart", cart_items_path(item_id: @item.id), class: "btn waves-effect waves-light" %>
     <% else %>
       <p class="red-text">This item is currently out of stock.</p>
