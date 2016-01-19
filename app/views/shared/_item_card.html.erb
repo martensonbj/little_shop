@@ -1,5 +1,5 @@
 <div class="grid-item">
-  <div class="card">
+  <div class="card" id="item_<%= item.id %>">
     <a href="/items/<%= item.id %>" class="card-image">
       <%= image_tag item.image_path %>
     </a>
@@ -13,6 +13,7 @@
 
       <% if current_admin? %>
         <%= link_to "Edit", edit_admin_item_path(item), class: "btn waves-effect waves-light" %>
+        <%= link_to "Delete", admin_item_path(item), method: :delete,  class: "btn waves-effect waves-light"%>
 
         <% if item.active? %>
           <h5 class="light-green-text text-accent-4">Status: <%= item.status %></h5>
