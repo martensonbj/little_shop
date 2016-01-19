@@ -1,3 +1,9 @@
+/* DARKER GREEN #6C8672
+ LIGHTER GREEN #C4D4AF
+ BLUEISH #68A8AD
+PURPLY #737495
+ PINK #F17D80 */
+
 img {
   max-width: 100%;
 }
@@ -8,8 +14,33 @@ h2 {
     font-family: 'Amatic SC', cursive;
 }
 
+h3  {
+  font-weight: 100;
+}
+
+a {
+  color: #6C8672
+}
+
+a:hover {
+  color: #C4D4AF;
+}
+
 select {
   display: block;
+}
+
+nav .nav-wrapper {
+  background-color: #6C8672;
+}
+
+nav ul a {
+  color: #C4D4AF;
+}
+
+nav ul a:hover {
+    background-color: rgba(0,0,0,0.1);
+    color: #fff;
 }
 
 /* ORDERS */
@@ -53,7 +84,7 @@ select {
 }
 
 .login_confirm {
-  color: #a7ffeb;
+  color: #F17D80;
 }
 
 .img-small {
@@ -97,25 +128,53 @@ select {
   top: 200px;
 }
 
-.btn_landing_page {
-  background-color: rgba(255,255,255,0.8)!important;
+.btn_landing_page.index_button {
+  background-color: rgba(104, 168, 173, 0.7)!important;
   height: 70px!important;
   padding: 0px;
 }
 
-.btn_landing_page:hover {
-  background-color: rgba(255,255,255, 1)!important;
+.btn_landing_page:hover.index_button {
+  background-color: rgba(104, 168, 173, 0.9)!important
 }
 
 .index_button a {
     display: block;
     height: 100%;
     padding: 20px;
-    color: #686868;
+    color: #fff;
 }
 
 .index_button a:hover {
-  color: #000;
+  color: #C4D4AF;
+}
+
+/* BUTTONS */
+.btn {
+  margin: 3px;
+  background-color: #6C8672!important;
+  color: #C4D4AF
+}
+
+.btn:hover {
+  background-color: #C4D4AF!important;
+  color: #6C8672;
+}
+
+.btn_edit {
+  background-color: rgba(115, 127, 149, 1)!important;
+}
+
+.btn_edit:hover {
+  background-color: rgba(115, 127, 149, 0.8)!important;
+}
+
+.btn_delete {
+  background-color: rgba(104, 168, 173,1)!important;
+}
+
+.btn_delete:hover {
+  background-color: rgba(104, 168, 173,0.8)!important;
 }
 
 #browse_artist_button {
@@ -131,6 +190,19 @@ select {
   width: 435px;
 }
 
+.active_status_text {
+  color: #6C8672;
+  font-weight: 100;
+}
+
+.inactive_status_text {
+  color: #C4D4AF;
+  font-weight: 100;
+}
+
+.pink_error_text {
+  color: #F17D80;
+}
 
 .grid-item {
   width: 315px;
@@ -210,11 +282,6 @@ span.order_heading {
   margin-top: 2rem;
 }
 
-/* BUTTONS */
-.btn {
-  margin: 3px;
-}
-
 /* FORM STYLING */
 form.profile_form {
     width: 80%;
@@ -279,6 +346,24 @@ textarea.materialize-textarea {
 
 .side-nav li:hover {
   background-color: rgba(89, 107, 115, 0.62);
+}
+
+/***** USERS SHOW PAGE *****/
+
+.user_action_links .action_box {
+  margin-bottom: 10px;
+}
+
+.user_action_links .action_box a {
+    color: #C4D4AF !important;
+    display: block;
+    padding: 20px;
+    background-color: #6C8672
+}
+
+.user_action_links .action_box a:hover {
+    color: #6C8672 !important;
+    background-color: #C4D4AF;
 }
 
 @media screen only and (max-width: 990px) {

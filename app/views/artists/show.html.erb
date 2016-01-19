@@ -1,4 +1,6 @@
-<h2> <%= @artist.full_name %> </h2>
+<h2><% if @artist.file_upload_file_name %>
+      <%= image_tag @artist.file_upload.url(:thumb), class: "artist_thumb circle"%>
+    <% end %><%= @artist.full_name %> </h2>
 
 <div class="grid">
   <% @artist.items.each do |item| %>
