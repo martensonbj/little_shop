@@ -1,5 +1,5 @@
 <div class="grid-item">
-  <div class="card">
+  <div class="card" id="item_<%= item.id %>">
     <a href="/items/<%= item.id %>" class="card-image">
       <% if item.file_upload_file_name.nil? %>
         <%= image_tag item.image_path %>
@@ -16,7 +16,8 @@
       <% end %>
 
       <% if current_admin? %>
-        <%= link_to "Edit", edit_admin_item_path(item), class: "btn waves-effect waves-light" %>
+        <%= link_to "Edit", edit_admin_item_path(item), class: "btn waves-effect waves-light light-blue darken-2" %>
+        <%= link_to "Delete", admin_item_path(item), method: :delete,  class: "btn waves-effect waves-light red darken-4"%>
 
         <% if item.active? %>
           <h5 class="light-green-text text-accent-4">Status: <%= item.status %></h5>
@@ -25,7 +26,8 @@
         <% end %>
 
       <% elsif current_artist? && artist_owns_item?(item) %>
-        <%= link_to "Edit", edit_user_item_path(current_user, item), class: "btn waves-effect waves-light" %>
+        <%= link_to "Edit", edit_user_item_path(current_user, item), class: "btn waves-effect waves-light light-blue darken-2" %>
+        <%= link_to "Delete", item_path(item), method: :delete,  class: "btn waves-effect waves-light red darken-4"%>
 
         <% if item.active? %>
           <h5 class="light-green-text text-accent-4">Status: <%= item.status %></h5>

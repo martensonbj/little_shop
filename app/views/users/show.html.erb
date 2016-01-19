@@ -1,13 +1,2 @@
 <h2><%= current_user.first_name %>'s Profile</h2>
-
-<h5><%= link_to "View Past Orders", user_orders_path(current_user.slug) %></h5>
-
-<% if current_artist? %>
-  <% if current_user.file_upload %>
-    <%= image_tag current_user.file_upload.url(:medium) %>
-  <% end %>
-  <h5><%= link_to "View My Items", artist_path(current_user) %></h5>
-  <h5><%= link_to "Add New Item", new_user_item_path(current_user) %></h5>
-<% end %>
-
 <%= render partial: "shared/user_info" %>

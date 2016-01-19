@@ -32,6 +32,6 @@ class Item < ActiveRecord::Base
 
   def check_image_path
     photo_not_available = "https://www.weefmgrenada.com/images/na4.jpg"
-    self.image_path = photo_not_available unless image_path
+    self.image_path = photo_not_available if image_path.nil? || image_path.empty?
   end
 end
