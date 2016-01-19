@@ -41,7 +41,7 @@
   <%= f.password_field :password_confirmation %>
   <br>
 
-  <% if current_user && current_user.admin? %>
+  <% if current_admin? %>
     <%= f.label :role %>
     <%= f.select :role, options_for_select(["default", "artist", "admin"], selected: "admin") %>
     <br>

@@ -21,7 +21,7 @@ class GuestCanCreateAnArtistAccountTest < ActionDispatch::IntegrationTest
     assert_equal "artist", user.role
 
     assert_equal dashboard_path, current_path
-    assert page.has_link? "View My Items", user_items_path(user)
-    assert page.has_link? "Add Item", new_user_item_path(user)
+    assert page.has_link? "View My Items", artist_path(user)
+    assert page.has_link? "Add New Item", new_user_item_path(user)
   end
 end

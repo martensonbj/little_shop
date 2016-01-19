@@ -6,7 +6,7 @@
     <!-- DESKTOP NAV -->
     <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-      <% if current_user && current_user.admin? %>
+      <% if current_admin? %>
         <li class="right-align">
           <%= link_to "Logged in as #{current_user.first_name} (admin)", admin_dashboard_path(current_user) , class: "login_confirm"%>
         </li>
@@ -29,7 +29,7 @@
         <li><%= link_to "Login", login_path %></li>
       <% end %>
 
-      <% if current_user && current_user.admin? %>
+      <% if current_admin? %>
         <li><%= link_to "View All Items", admin_items_path %></li>
         <li><%= link_to "Browse by Artist", artists_path %></li>
         <li><%= link_to "Browse by Category", categories_path %></li>
@@ -44,7 +44,7 @@
     <ul class="side-nav" id="mobile-demo">
       <li><strong><%= link_to "RoughSketch", root_path %></strong></li>
 
-      <% if current_user && current_user.admin? %>
+      <% if current_admin? %>
         <li><%= link_to "View All Items", admin_items_path %></li>
         <li><%= link_to "Browse by Artist", artists_path %></li>
         <li><%= link_to "Browse by Category", categories_path %></li>
@@ -56,7 +56,7 @@
 
       <li><%= link_to "View Cart", cart_path %></li>
 
-      <% if current_user && current_user.admin? %>
+      <% if current_admin? %>
         <li class="right-align">
           <%= link_to "Logged in as #{current_user.first_name} (admin)", admin_dashboard_path(current_user) , class: "login_confirm"%>
         </li>

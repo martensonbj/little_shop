@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show, :edit, :update] do
     get "/cart", to: "cart_items#index"
     resources :orders, only: [:index, :create, :show]
+    resources :items, only: [:new, :create]
   end
 
   namespace :admin do
