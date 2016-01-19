@@ -26,6 +26,9 @@
           <h5><%= link_to "Create Item", new_admin_item_path %></h5>
           <h5><%= link_to "View Items", admin_items_path %></h5>
           <h5><%= link_to "View Orders", admin_orders_path %></h5>
+        <% elsif current_artist? %>
+          <h5><%= link_to "View My Items", artist_path(current_user) %></h5>
+          <h5><%= link_to "Add New Item", new_user_item_path(current_user) %></h5>
         <% end %>
       </div>
     </div>
