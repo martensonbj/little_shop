@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   before_create :generate_slug
   has_secure_password
+
   validates :username, presence: true,
                        uniqueness: true
   validates :first_name, presence: true
@@ -13,6 +14,7 @@ class User < ActiveRecord::Base
   validates :zipcode, presence: true
   has_many :orders
   has_many :items
+
   has_attached_file :file_upload,
                     styles: { medium: "300x300>", thumb: "100x100>" },
                     default_url: "https://www.weefmgrenada.com/images/na4.jpg"
