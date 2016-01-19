@@ -14,6 +14,12 @@
       <h5>Cancelled: <%= @orders.count_of_cancelled %></h5>
     </div>
   </div>
+
+  <div class="filter">
+    <label>Filter By Order Status:</label>
+    <%= select_tag :order_status, options_for_select(%w(all ordered paid completed cancelled)) %>
+  </div>
+
   <div class="card-panel blue-grey lighten-5">
 
     <table class="highlight">
@@ -29,10 +35,10 @@
       </thead>
       <tbody>
       <% @orders.reverse.each do |order| %>
-          <tr id="order_<%= order.id %>">
+          <tr id="order_<%= order.id %>" class="order">
             <td><%= link_to order.id, user_order_path(order.user, order) %></td>
             <td><%= order.user.username  %></td>
-            <td class="status_<%=order.status%>"><%= order.status %></td>
+            <td class="status_<%=order.status%> order_status"><%= order.status %></td>
             <td><%= order.date %></td>
             <td>
               <% if order.ordered? %>

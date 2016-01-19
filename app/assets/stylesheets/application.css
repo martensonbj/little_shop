@@ -8,6 +8,12 @@ h2 {
     font-family: 'Amatic SC', cursive;
 }
 
+select {
+  display: block;
+}
+
+/* ORDERS */
+
 .status_ordered{
   color: #ffa000;
 }
@@ -31,6 +37,13 @@ h2 {
 .status_completed{
   color: black;
 }
+
+#order_status {
+  width: 200px;
+  margin: 5px auto 20px auto;
+}
+
+/* BUTTONS */
 
 .remove-item-button {
   font-size: 14px;
