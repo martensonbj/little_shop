@@ -60,6 +60,7 @@ class UsersController < ApplicationController
                                  :city,
                                  :state,
                                  :zipcode,
+                                 :role,
                                  :slug)
   end
 end

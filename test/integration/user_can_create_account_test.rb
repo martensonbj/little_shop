@@ -32,6 +32,9 @@ class UserCanCreateAccountTest < ActionDispatch::IntegrationTest
     refute page.has_content?("Login")
     assert page.has_content?("Logout")
 
+    refute page.has_link? "View My Items", artist_path(user)
+    refute page.has_link? "Add New Item", new_user_item_path(user)
+
     find("#shopping_cart").click
     assert_equal cart_path, current_path
     assert page.has_content?(@item.title)

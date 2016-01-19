@@ -16,7 +16,7 @@ class AdminModifyUserDataTest < ActionDispatch::IntegrationTest
 
     assert_equal edit_user_path(admin), current_path
 
-    select('New York', from: 'user_state')
+    select "New York", from: "user_state"
     fill_in "City", with: "Gotham"
     click_on "Update User"
 

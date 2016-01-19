@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   before_action :set_cart
   helper_method :current_user
   helper_method :current_admin?
+  helper_method :current_artist?
+  helper_method :artist_owns_item?
 
   def set_cart
     @cart = Cart.new(session[:cart])
@@ -14,5 +16,13 @@ class ApplicationController < ActionController::Base
 
   def current_admin?
     current_user && current_user.admin?
+  end
+
+  def current_artist?
+    current_user && current_user.artist?
+  end
+
+  def artist_owns_item?(item)
+    item.user.id == current_user.id
   end
 end
