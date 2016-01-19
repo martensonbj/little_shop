@@ -29,8 +29,10 @@
   <%= f.text_field :zipcode %>
   <br>
 
-  <%= f.label :username %>
-  <%= f.text_field :username  %>
+  <% unless current_user %>
+    <%= f.label :username %>
+    <%= f.text_field :username  %>
+  <% end %>
   <br>
 
   <%= f.label :password %>
