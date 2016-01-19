@@ -1,4 +1,4 @@
-<%= form_for [:admin, @item], :html => {class: "profile_form"} do |f| %>
+<%= form_for [current_user, @item], :html => {class: "profile_form"} do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br>
@@ -14,12 +14,6 @@
   <%= f.label :category %>
   <%= f.fields_for :category, @item.category do |category_form| %>
     <%= f.select "category_id", options_from_collection_for_select(Category.all, "id", "name"), {prompt: nil}, {multiple: false} %>
-  <% end %>
-  <br>
-
-  <%= f.label :user %>
-  <%= f.fields_for :user, @item.user do |user_form| %>
-    <%= f.select "user_id", options_from_collection_for_select(User.all.artists, "id", "first_name"), {prompt: nil}, {multiple: false} %>
   <% end %>
   <br>
 
