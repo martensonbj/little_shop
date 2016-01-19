@@ -7,10 +7,6 @@ h2 {
     letter-spacing: 1.1rem;
     font-family: 'Amatic SC', cursive;
 }
-/*
-nav ul a:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}*/
 
 .status_ordered{
   color: yellow;
@@ -187,6 +183,11 @@ span.order_heading {
 
 .card-panel {
   margin-top: 2rem;
+}
+
+/* BUTTONS */
+.btn {
+  margin: 3px;
 }
 
 /* FORM STYLING */
