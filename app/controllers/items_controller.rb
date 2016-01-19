@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :require_artist, only: [:new, :create, :edit, :update]
-  before_action :item_belongs_to_current_artist, only: [:edit, :update]
+  before_action :item_belongs_to_current_artist,
+                only: [:edit, :update, :destroy]
 
   def index
     @items = Item.all

@@ -22,6 +22,7 @@
 
       <% elsif current_artist? && artist_owns_item?(item) %>
         <%= link_to "Edit", edit_user_item_path(current_user, item), class: "btn waves-effect waves-light" %>
+        <%= link_to "Delete", item_path(item), method: :delete,  class: "btn waves-effect waves-light"%>
 
         <% if item.active? %>
           <h5 class="light-green-text text-accent-4">Status: <%= item.status %></h5>
