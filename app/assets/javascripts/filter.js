@@ -8,7 +8,7 @@ $(document).ready(function () {
 
     $artists.each(function (index, artist) {
       var $artist = $(artist);
-      var $artistName = $artist.find('h2').text().toLowerCase();
+      var $artistName = $artist.find('h2 span').text().toLowerCase();
 
       if ($artistName.startsWith(currentName)) {
         $artist.show();
