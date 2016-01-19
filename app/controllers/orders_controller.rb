@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
       @cart.clear
 
       flash[:success] = "Order was successfully placed"
-      redirect_to user_orders_path(current_user, order_id: order.id)
+      redirect_to user_orders_path(current_user.slug, order_id: order.id)
     end
   end
 
@@ -25,6 +25,7 @@ class OrdersController < ApplicationController
   private
 
   def require_user
-    render file: "public/404" unless current_user.id == params[:user_id].to_i
+    render file: "public/404" unless current_admin? ||
+                                     current_user.slug == params[:user_slug]
   end
 end

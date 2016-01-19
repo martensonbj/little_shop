@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  before_create :generate_slug
   has_secure_password
   validates :username, presence: true,
                        uniqueness: true
@@ -19,5 +20,13 @@ class User < ActiveRecord::Base
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def to_param
+    slug
+  end
+
+  def generate_slug
+    self.slug = username.parameterize
   end
 end
