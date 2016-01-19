@@ -12,6 +12,8 @@ select {
   display: block;
 }
 
+/* ORDERS */
+
 .status_ordered{
   color: yellow;
 }
@@ -27,6 +29,13 @@ select {
 .status_completed{
   color: black;
 }
+
+#order_status {
+  width: 200px;
+  margin: 5px auto 20px auto;
+}
+
+/* BUTTONS */
 
 .remove-item-button {
   font-size: 14px;
