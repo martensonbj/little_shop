@@ -189,7 +189,7 @@ span.order_heading {
   margin-top: 2rem;
 }
 
-/* FORM STYLING */
+/***** FORM STYLING *****/
 
 form.profile_form {
     width: 80%;
@@ -231,6 +231,28 @@ textarea.materialize-textarea {
   font-size: 20px;
   font-weight: 300px;
   text-align: center;
+}
+
+/***** SIDE NAV ******/
+
+.side-nav {
+  background-color: rgba(0,0,0,0.7)
+}
+
+.side-nav a {
+  color: #7E8D94;
+}
+
+.side-nav a:hover {
+  background-color: transparent;
+  color: #fff;
+}
+.side-nav li {
+  border-bottom: 1px solid #303F46;
+}
+
+.side-nav li:hover {
+  background-color: rgba(89, 107, 115, 0.62);
 }
 
 @media screen only and (max-width: 990px) {
