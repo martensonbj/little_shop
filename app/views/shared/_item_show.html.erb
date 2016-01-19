@@ -26,6 +26,8 @@
 
       <br>
       <%= link_to "Edit", edit_user_item_path(current_user, @item), class: "btn waves-effect waves-light"%>
+      <br>
+      <%= link_to "Delete", item_path(@item), method: :delete,  class: "btn waves-effect waves-light"%>
     <% end %>
 
     <% if @item.active? %>
