@@ -48,7 +48,8 @@ class ItemsController < ApplicationController
                                  :price,
                                  :description,
                                  :category_id,
-                                 :status)
+                                 :status,
+                                 :file_upload)
   end
 
   def require_artist

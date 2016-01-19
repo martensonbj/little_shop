@@ -10,6 +10,10 @@
         <li class="right-align">
           <%= link_to "Logged in as #{current_user.first_name} (admin)", admin_dashboard_path(current_user.slug) , class: "login_confirm"%>
         </li>
+      <% elsif current_artist? %>
+        <li class="right-align">
+          <%= link_to "Logged in as #{current_user.first_name} (artist)", admin_dashboard_path(current_user.slug) , class: "login_confirm"%>
+        </li>
       <% elsif current_user %>
         <li class="right-align">
           <%= link_to "Logged in as #{current_user.first_name}", dashboard_path(current_user.slug) , class: "login_confirm"%>
