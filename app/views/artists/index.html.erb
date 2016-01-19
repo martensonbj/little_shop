@@ -5,7 +5,12 @@
 
 <% @artists.each do |artist| %>
   <div class="artist">
-    <h2><%= link_to artist.full_name, artist_path(artist) %></h2>
+    <h2>
+      <% if artist.file_upload_file_name %>
+      <%= image_tag artist.file_upload.url(:thumb), class: "artist_thumb"%>
+      <% end %>
+      <%= link_to artist.full_name, artist_path(artist) %>
+    </h2>
     <div id="<%= artist.username %>" class="grid">
       <% artist.items.each do |item| %>
         <%= render partial: 'shared/item_card', locals: { item: item } %>

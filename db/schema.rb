@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160117194527) do
+ActiveRecord::Schema.define(version: 20160119183846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,12 +27,16 @@ ActiveRecord::Schema.define(version: 20160117194527) do
     t.string   "title"
     t.string   "image_path"
     t.integer  "category_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.integer  "price"
     t.text     "description"
     t.integer  "user_id"
-    t.integer  "status",      default: 1
+    t.integer  "status",                   default: 1
+    t.string   "file_upload_file_name"
+    t.string   "file_upload_content_type"
+    t.integer  "file_upload_file_size"
+    t.datetime "file_upload_updated_at"
   end
 
   add_index "items", ["category_id"], name: "index_items_on_category_id", using: :btree
@@ -63,15 +67,19 @@ ActiveRecord::Schema.define(version: 20160117194527) do
     t.string   "last_name"
     t.string   "username"
     t.string   "password_digest"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.integer  "role",            default: 0
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.integer  "role",                     default: 0
     t.string   "email_address"
     t.string   "street_address"
     t.string   "city"
     t.string   "state"
     t.integer  "zipcode"
     t.string   "slug"
+    t.string   "file_upload_file_name"
+    t.string   "file_upload_content_type"
+    t.integer  "file_upload_file_size"
+    t.datetime "file_upload_updated_at"
   end
 
   add_foreign_key "items", "categories"

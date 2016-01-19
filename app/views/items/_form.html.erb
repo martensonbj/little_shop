@@ -1,10 +1,14 @@
-<%= form_for [current_user, @item], :html => {class: "profile_form"} do |f| %>
+<%= form_for [current_user, @item], :html => {class: "profile_form", multipart: true} do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br>
 
   <%= f.label :image_path %>
   <%= f.text_field :image_path %>
+  <br>
+
+  <%= f.label :file_upload %>
+  <%= f.file_field :file_upload, class: "upload_file" %>
   <br>
 
   <%= f.label :price %>

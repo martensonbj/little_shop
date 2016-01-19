@@ -1,6 +1,11 @@
 class Item < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
+  has_attached_file :file_upload,
+                    styles: { medium: "300x300>", thumb: "100x100>" },
+                    default_url: "https://www.weefmgrenada.com/images/na4.jpg"
+  validates_attachment_content_type :file_upload,
+                                    content_type: %r{\Aimage\/.*\Z}
   has_many :order_items
   has_many :orders, through: :order_items
 

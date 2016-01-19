@@ -242,6 +242,7 @@ input[type=datetime-local],
 input[type=tel],
 input[type=number],
 input[type=search],
+input[type=file],
 textarea.materialize-textarea {
     font-size: 20px;
     font-weight: 300;

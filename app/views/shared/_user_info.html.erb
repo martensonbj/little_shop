@@ -2,6 +2,11 @@
   <div class="col s12 m6">
     <div class="card">
       <div class="card-content">
+        <% if current_artist? %>
+          <% if current_user.file_upload %>
+            <%= image_tag current_user.file_upload.url(:medium) %>
+          <% end %>
+        <% end %>
         <h3><%= current_user.full_name %></h3>
         <h5 class="left-align"><strong>Username: </strong><%= current_user.username %></h5>
         <h5 class="left-align"><strong>Email: </strong><%= current_user.email_address %></h5>

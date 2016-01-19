@@ -61,6 +61,7 @@ class UsersController < ApplicationController
                                  :state,
                                  :zipcode,
                                  :role,
-                                 :slug)
+                                 :slug,
+                                 :file_upload)
   end
 end
