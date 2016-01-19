@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :require_artist, only: [:new, :create, :edit, :update]
+  before_action :item_belongs_to_current_artist, only: [:edit, :update]
 
   def index
     @items = Item.all
@@ -52,5 +53,13 @@ class ItemsController < ApplicationController
 
   def require_artist
     render file: "/public/404" unless current_artist?
+  end
+
+  def item_belongs_to_current_artist
+    render file: "/public/404" unless item_user_id_is_current_user
+  end
+
+  def item_user_id_is_current_user
+    Item.find(params[:id]).user.id == current_user.id
   end
 end

@@ -49,4 +49,31 @@ class ArtistCanEditAnExistingItemTest < ActionDispatch::IntegrationTest
     visit item_path(item2)
     refute page.has_content? "Edit"
   end
+
+  test "artist cannot edit another artist's item from item index page" do
+    artist1 = create(:artist)
+
+    artist2 = create(:artist)
+    item2 = create(:item)
+    artist2.items << item2
+
+    ApplicationController.any_instance.stubs(:current_user).returns(artist1)
+
+    visit items_path
+    refute page.has_content? "Edit"
+  end
+
+  test "artist cannot go directly to another artist's edit item page" do
+    artist1 = create(:artist)
+
+    artist2 = create(:artist)
+    item2 = create(:item)
+    artist2.items << item2
+
+    ApplicationController.any_instance.stubs(:current_user).returns(artist1)
+
+    visit edit_user_item_path(artist2, item2)
+    message_404 = "The page you were looking for doesn't exist (404)"
+    assert page.has_content?(message_404)
+  end
 end

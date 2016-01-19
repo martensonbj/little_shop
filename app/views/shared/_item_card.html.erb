@@ -20,7 +20,7 @@
           <h5 class="grey-text">Status: <%= item.status %></h5>
         <% end %>
 
-      <% elsif current_artist? %>
+      <% elsif current_artist? && artist_owns_item?(item) %>
         <%= link_to "Edit", edit_user_item_path(current_user, item), class: "btn waves-effect waves-light" %>
 
         <% if item.active? %>
