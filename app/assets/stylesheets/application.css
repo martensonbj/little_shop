@@ -15,7 +15,15 @@ select {
 /* ORDERS */
 
 .status_ordered{
-  color: yellow;
+  color: #ffa000;
+}
+
+#order_link1 {
+  padding-right: 40px;
+}
+
+#order_link2 {
+  padding-left: 40px;
 }
 
 .status_paid{
@@ -50,6 +58,10 @@ select {
 
 .img-small {
   max-width: 100%;
+}
+
+.highlight tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: white;
 }
 
 #price {

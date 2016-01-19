@@ -1,51 +1,60 @@
 <h2>All Orders</h2>
-<div id= "totals" class="row center-align">
-  <div class="col s3 status_ordered">
-    <p>Ordered: <%= @orders.count_of_ordered %></p>
+<div class="col s12 m12">
+  <div id= "totals" class="row center-align">
+    <div class="col s3 status_ordered">
+      <h5>Ordered: <%= @orders.count_of_ordered %></h5>
+    </div>
+    <div class="col s3 status_paid">
+      <h5>Paid: <%= @orders.count_of_paid %></h5>
+    </div>
+    <div class="col s3 status_completed">
+      <h5>Completed: <%= @orders.count_of_completed %></h5>
+    </div>
+    <div class="col s3 status_cancelled">
+      <h5>Cancelled: <%= @orders.count_of_cancelled %></h5>
+    </div>
   </div>
-  <div class="col s3 status_paid">
-    <p>Paid: <%= @orders.count_of_paid %></p>
+
+  <div class="filter">
+    <label>Filter By Order Status:</label>
+    <%= select_tag :order_status, options_for_select(%w(all ordered paid completed cancelled)) %>
   </div>
-  <div class="col s3 status_completed">
-    <p>Completed: <%= @orders.count_of_completed %></p>
-  </div>
-  <div class="col s3 status_cancelled">
-    <p>Cancelled: <%= @orders.count_of_cancelled %></p>
+
+  <div class="card-panel blue-grey lighten-5">
+
+    <table class="highlight">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Username</th>
+          <th>Order Status</th>
+          <th>Date</th>
+          <th>Update Status</th>
+          <th>Cancel</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @orders.reverse.each do |order| %>
+          <tr id="order_<%= order.id %>" class="order">
+            <td><%= link_to order.id, user_order_path(order.user, order) %></td>
+            <td><%= order.user.username  %></td>
+            <td class="status_<%=order.status%> order_status"><%= order.status %></td>
+            <td><%= order.date %></td>
+            <td>
+              <% if order.ordered? %>
+                <%= link_to "Mark as Paid", admin_order_path(order, status: 1), method: :put %>
+              <% elsif order.paid? %>
+                <%= link_to "Mark as Completed", admin_order_path(order, status: 3), method: :put %>
+              <% end %>
+            </td>
+            <td>
+              <% unless order.cancelled? || order.completed? %>
+                <%= link_to "Cancel", admin_order_path(order, status: 2), method: :put %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
-
-<div class="filter">
-  <label>Filter By Order Status:</label>
-  <%= select_tag :order_status, options_for_select(%w(all ordered paid completed cancelled)) %>
-</div>
-
-<table class="highlight">
-  <thead>
-    <tr>
-      <th>Order ID</th>
-      <th>Username</th>
-      <th>Order Status</th>
-      <th>Date</th>
-      <th>Update Status</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @orders.reverse.each do |order| %>
-      <tr id="order_<%= order.id %>" class="order">
-        <td><%= link_to order.id, user_order_path(order.user, order) %></td>
-        <td><%= order.user.username  %></td>
-        <td class="status_<%=order.status%> order_status"><%= order.status %></td>
-        <td><%= order.date %></td>
-        <td>
-          <% if order.ordered? %>
-            <%= link_to "Mark as Paid", admin_order_path(order, status: 1), method: :put %>
-            <%= link_to "Cancel", admin_order_path(order, status: 2), method: :put %>
-          <% elsif order.paid? %>
-            <%= link_to "Mark as Completed", admin_order_path(order, status: 3), method: :put %>
-            <%= link_to "Cancel", admin_order_path(order, status: 2), method: :put %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
