@@ -28,8 +28,8 @@
   <%= f.label :zipcode %>
   <%= f.text_field :zipcode %>
   <br>
-  
-  <% if @user != current_user %>
+
+  <% unless current_user %>
     <%= f.label :username %>
     <%= f.text_field :username  %>
   <% end %>

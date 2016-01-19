@@ -37,6 +37,11 @@ class Admin::ItemsController < Admin::BaseController
     end
   end
 
+  def destroy
+    Item.find(params[:id]).destroy
+    redirect_to admin_items_path
+  end
+
   private
 
   def item_params

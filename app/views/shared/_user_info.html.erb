@@ -1,8 +1,36 @@
-<h4>Name: <%= current_user.first_name %> <%= current_user.last_name %></h4>
-<h4>Username: <%= current_user.username %></h4>
-<h4>Email: <%= current_user.email_address %></h4>
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card">
+      <div class="card-content">
+        <h3><%= current_user.full_name %></h3>
+        <h5 class="left-align"><strong>Username: </strong><%= current_user.username %></h5>
+        <h5 class="left-align"><strong>Email: </strong><%= current_user.email_address %></h5>
+        <h5 class="left-align"><%= current_user.street_address %></h5>
+        <h5 class="left-align"><%= current_user.city %>, <%= current_user.state %> <%= current_user.zipcode %></h5>
+      </div>
+      <div class="card-action">
+        <%= link_to "Edit Info", edit_user_path(current_user), class: "btn waves-effect waves-light" %>
+      </div>
+    </div>
+  </div>
 
-<h4>Address:</h4>
-<h5><%= current_user.street_address %></h5>
-<h5><%= current_user.city %>, <%= current_user.state %> <%= current_user.zipcode %></h5>
-<%= link_to "Edit Info", edit_user_path(current_user) %>
+  <div class="col s12 m6">
+    <div class="card">
+      <div class="card-content">
+        <h3>Actions</h3>
+      </div>
+      <div class="card-action">
+        <h5><%= link_to "View Past Orders", user_orders_path(current_user.slug) %></h5>
+
+        <% if current_admin? %>
+          <h5><%= link_to "Create Item", new_admin_item_path %></h5>
+          <h5><%= link_to "View Items", admin_items_path %></h5>
+          <h5><%= link_to "View Orders", admin_orders_path %></h5>
+        <% elsif current_artist? %>
+          <h5><%= link_to "View My Items", artist_path(current_user) %></h5>
+          <h5><%= link_to "Add New Item", new_user_item_path(current_user) %></h5>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

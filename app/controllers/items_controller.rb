@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :require_artist, only: [:new, :create, :edit, :update]
-  before_action :item_belongs_to_current_artist, only: [:edit, :update]
+  before_action :item_belongs_to_current_artist,
+                only: [:edit, :update, :destroy]
 
   def index
     @items = Item.all
@@ -38,6 +39,12 @@ class ItemsController < ApplicationController
       render :new
       flash[:alert] = "All fields must be filled in."
     end
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to items_path
   end
 
   private
