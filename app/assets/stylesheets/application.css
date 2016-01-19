@@ -8,6 +8,10 @@ h2 {
     font-family: 'Amatic SC', cursive;
 }
 
+select {
+  display: block;
+}
+
 .status_ordered{
   color: yellow;
 }
