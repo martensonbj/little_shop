@@ -16,8 +16,9 @@ class User < ActiveRecord::Base
   has_many :items
 
   has_attached_file :file_upload,
-                    styles: { medium: "300x300>", thumb: "100x100>" },
+                    styles: { large: "550x550>", medium: "300x300>", thumb: "100x100>" },
                     default_url: "https://www.weefmgrenada.com/images/na4.jpg"
+
   validates_attachment_content_type :file_upload,
                                     content_type: %r{\Aimage\/.*\Z}
 
