@@ -23,14 +23,32 @@ class Item < ActiveRecord::Base
 
   enum status: %w(inactive active)
 
+  def default_image?
+    image_path == default_image
+  end
+
   private
+
+  def default_image
+    "https://www.weefmgrenada.com/images/na4.jpg"
+  end
 
   def check_user_type
     User.find(user_id).artist?
   end
 
   def check_image_path
-    photo_not_available = "https://www.weefmgrenada.com/images/na4.jpg"
-    self.image_path = photo_not_available if image_path.nil? || image_path.empty?
+    self.image_path = default_image if image_path_is_empty_or_nil
+
+    if default_image? && file_upload_file_name
+      self.image_path = ""
+      self.status = "active"
+    elsif default_image?
+      self.status = "inactive"
+    end
+  end
+
+  def image_path_is_empty_or_nil
+    image_path.nil? || image_path.empty?
   end
 end

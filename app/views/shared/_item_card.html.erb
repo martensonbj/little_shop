@@ -12,7 +12,7 @@
       <% if item.status == "active" %>
         <%= button_to "Add to Cart", cart_items_path(item_id: item.id), class: "btn waves-effect waves-light" %>
       <% else %>
-        <p class="pink_error_text">This item is currently out of stock.</p>
+        <p class="pink_error_text">This item is inactive.</p>
       <% end %>
 
       <% if current_admin? %>
