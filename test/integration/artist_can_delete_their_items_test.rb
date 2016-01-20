@@ -28,4 +28,23 @@ class ArtistCanDeleteTheirItemsTest < ActionDispatch::IntegrationTest
     visit item_path(item2)
     refute page.has_content? "Delete"
   end
+
+  test "artist cannot delete an item that has been ordered" do
+    artist = create(:artist)
+    item = create(:item)
+    artist.items << item
+    order = create(:order)
+    order.items << item
+
+    ApplicationController.any_instance.stubs(:current_user).returns(artist)
+
+    visit item_path(item)
+    click_on "Delete"
+
+    error_msg = "Cannot delete an item that has been ordered." \
+                " Suggest making it inactive instead."
+
+    assert page.has_content? error_msg
+    assert_equal 1, Item.count
+  end
 end

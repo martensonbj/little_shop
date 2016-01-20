@@ -64,4 +64,27 @@ class ArtistCanAddAnItemTest < ActionDispatch::IntegrationTest
     assert_equal artist, Item.last.user
     assert_equal 100000, Item.last.price
   end
+
+  test "artist cannot add item with missing fields" do
+    artist = create(:artist)
+    category = create(:category)
+    ApplicationController.any_instance.stubs(:current_user).returns(artist)
+
+    image_path = "https://petenelson.com/wp-content" \
+                 "/uploads/2011/08/ron-swanson-meat.jpg"
+
+    visit dashboard_path
+    click_on "Add New Item"
+
+    assert_equal new_user_item_path(artist), current_path
+
+    fill_in "Image path", with: image_path
+    fill_in "Price", with: "10"
+    fill_in "Description", with: "Salad? That's what my food eats"
+    select category.name, from: "item_category_id"
+    click_on "Create Item"
+
+    assert page.has_content? "Incomplete form"
+    assert_equal 0, Item.count
+  end
 end

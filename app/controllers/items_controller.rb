@@ -38,14 +38,21 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to @item
     else
-      render :new
       flash[:error] = "All fields must be filled in."
+      render :new
     end
   end
 
   def destroy
     @item = Item.find(params[:id])
-    @item.destroy
+
+    if @item.orders.empty?
+      @item.destroy
+    else
+      flash[:error] = "Cannot delete an item that has been ordered." \
+                      " Suggest making it inactive instead."
+    end
+
     redirect_to items_path
   end
 

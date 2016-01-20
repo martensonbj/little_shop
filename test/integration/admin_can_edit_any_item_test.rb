@@ -29,4 +29,25 @@ class AdminCanEditAnyItemTest < ActionDispatch::IntegrationTest
     assert page.has_content? "Status: inactive"
     assert page.has_content? artist.first_name
   end
+
+  test "item will not be updated with missing fields" do
+    admin = create(:admin)
+    artist = create(:artist)
+    item = create(:item)
+    artist.items << item
+    ApplicationController.any_instance.stubs(:current_user).returns(admin)
+    image_path = "https://petenelson.com/wp-content/" \
+                 "uploads/2011/08/ron-swanson-meat.jpg"
+
+    visit edit_admin_item_path(item)
+
+    fill_in "Title", with: ""
+    fill_in "Image path", with: image_path
+    fill_in "Price", with: "10"
+    select item.category.name, from: "item_category_id"
+    select artist.first_name, from: "item_user_id"
+    click_on "Update Item"
+
+    assert page.has_content? "All fields must be filled in."
+  end
 end
