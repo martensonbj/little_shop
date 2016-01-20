@@ -13,7 +13,7 @@ h1.home_title {
     position: relative;
     top: -85px;
     letter-spacing: 1.2rem;
-    color: #cccccc;
+    color: #fff;
     text-shadow: 3px 5px 10px #000000;
 }
 
@@ -40,12 +40,14 @@ select {
 }
 
 nav .brand-logo {
-  color: #eee;
-  margin-left: 10px;
+  color: #fff;
+  margin-left: 20px;
+  font-family: 'Rock Salt', curisve;
+  font-size: 20px;
 }
 
 nav .nav-wrapper {
-  background-color: #507D80;
+  background-color: #494856;
 }
 
 nav ul a {
@@ -143,7 +145,7 @@ nav ul a:hover {
 }
 
 .btn_landing_page.index_button {
-  background-color: rgba(104, 168, 173, 0.7)!important;
+  background-color: rgba(73, 72, 86, 0.8)!important;
   height: 70px!important;
   padding: 0px;
 }
