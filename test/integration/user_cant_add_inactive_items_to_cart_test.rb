@@ -14,7 +14,7 @@ class UserCantAddInactiveItemsToCartTest < ActionDispatch::IntegrationTest
     assert page.has_content? "Status: inactive"
     assert page.has_content? "Edit"
     refute page.has_content? "Add to Cart"
-    assert page.has_content? "This item is currently out of stock."
+    assert page.has_content? "This item is inactive."
 
     user = create(:user)
     ApplicationController.any_instance.stubs(:current_user).returns(user)
@@ -22,10 +22,10 @@ class UserCantAddInactiveItemsToCartTest < ActionDispatch::IntegrationTest
     visit items_path
     refute page.has_content? "Add to Cart"
     refute page.has_content? "Edit"
-    assert page.has_content? "This item is currently out of stock."
+    assert page.has_content? "This item is inactive."
 
     click_on item.title
     refute page.has_content? "Add to Cart"
-    assert page.has_content? "This item is currently out of stock."
+    assert page.has_content? "This item is inactive."
   end
 end
