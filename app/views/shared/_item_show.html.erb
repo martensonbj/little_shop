@@ -3,7 +3,7 @@
     <% if @item.file_upload_file_name.nil? %>
       <%= image_tag @item.image_path %>
     <% elsif @item.file_upload_file_name %>
-      <%= image_tag @item.file_upload.url(:medium) %>
+      <%= image_tag @item.file_upload.url(:large) %>
     <% end %>
   </div>
   <div class="col m6 s12">
