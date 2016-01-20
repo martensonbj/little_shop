@@ -3,7 +3,14 @@ require "test_helper"
 class UserCanChangeAccountToArtistTest < ActionDispatch::IntegrationTest
   test "User can change account to artist" do
     user = create(:user)
-    ApplicationController.any_instance.stubs(:current_user).returns(user)
+
+    visit login_path
+
+    fill_in "Username", with: user.username
+    fill_in "Password", with: user.password
+    within "form" do
+      click_on "Login"
+    end
 
     visit dashboard_path
     click_on "Edit Info"
@@ -14,19 +21,19 @@ class UserCanChangeAccountToArtistTest < ActionDispatch::IntegrationTest
     select("artist", from: "user_role")
     click_on "Update User"
 
-    save_and_open_page
+    assert_equal dashboard_path, current_path
+    assert_equal "artist", User.last.role
+    assert page.has_link? "Add New Item", href: new_user_item_path(user)
+    assert page.has_link? "View My Items", href: artist_path(user)
     assert page.has_content? "Gotham"
-    byebug
-    assert_equal "artist", user.role
 
+    click_on "Edit Info"
+    select("default", from: "user_role")
+    click_on "Update User"
 
+    assert_equal dashboard_path, current_path
+    assert_equal "default", User.last.role
+    refute page.has_link? "Add New Item", href: new_user_item_path(user)
+    refute page.has_link? "View My Items", href: artist_path(user)
   end
 end
-# As a registered user,
-# When I visit my user dashboard,
-# And I click on edit info,
-# And I select user type: 'Artist',
-# And I click on update user,
-# Then I should be taken to my user dashboard,
-# And I should see a link for creating items,
-# And I should see a link for viewing my items
