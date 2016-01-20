@@ -1,6 +1,10 @@
 <div class="row">
   <div class="col m4 s12">
-    <%= image_tag item.image_path, class: 'img-small' %>
+    <% if item.file_upload_file_name.nil? %>
+      <%= image_tag item.image_path, class: 'img-small' %>
+    <% elsif item.file_upload_file_name %>
+      <%= image_tag item.file_upload.url(:medium) %>
+    <% end %>
   </div>
   <div class="col m8 s12 left-align">
     <h5>
