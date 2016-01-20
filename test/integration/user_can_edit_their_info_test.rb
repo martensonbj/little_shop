@@ -17,7 +17,7 @@ class UserCanEditTheirInfoTest < ActionDispatch::IntegrationTest
     assert_equal edit_user_path(user), current_path
 
     fill_in "City", with: "Gotham"
-    select('New York', from: 'user_state')
+    select("New York", from: "user_state")
     click_on "Update User"
 
     assert_equal dashboard_path, current_path
