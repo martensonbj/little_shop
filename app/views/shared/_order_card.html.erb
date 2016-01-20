@@ -4,7 +4,7 @@
       <div class="card-title order_card_title"><a href="/users/<%= current_user.slug %>/orders/<%= order.id %>">Order ID: <%= order.id %></a></div>
 
       <div class="card-content order_card_content">
-        <div class="row order_details_top">
+        <div class="row order_details_top larger-text">
           <div class="col s4"><span class="order_heading">Ordered:</span> <%= order.date %></div>
           <div class="col s4"><span class="order_heading">Status:</span><span class="status_<%= order.status %>"> <%= order.status.capitalize %></span></div>
           <div class="col s4"><span class="order_heading">Total:</span> $<%= order.total %></div>
@@ -20,7 +20,7 @@
                     <%= image_tag item.file_upload.url(:medium) %>
                   <% end %>
                 </div>
-                <div class="order_data col s12 m7">
+                <div class="order_data col s12 m7 larger-text">
                   <p><span class="order_heading">Item Title:</span><%= link_to item.title, item_path(item) %></p>
                   <p><span class="order_heading">Price:</span> $<%= item.price %></p>
                   <p><span class="order_heading">Quantity:</span> <%= order.quantity_of_item(item.id) %></p>
@@ -33,12 +33,14 @@
         </div>
         <div>
           <h2>Shipping Info</h2>
-          <p><span class="order_heading">Name:</span><%= order.user.first_name + " " +  order.user.last_name %></p>
-          <p><span class="order_heading">Email:</span><%= order.user.email_address%></p>
-          <p><span class="order_heading">Street Address:</span><%= order.user.street_address %></p>
-          <p><span class="order_heading">City:</span><%= order.user.city %></p>
-          <p><span class="order_heading">State:</span><%= order.user.state %></p>
-          <p><span class="order_heading">Zipcode:</span><%= order.user.zipcode %></p>
+          <div class="row larger-text">
+            <p><span class="order_heading">Name:</span><%= order.user.first_name + " " +  order.user.last_name %></p>
+            <p><span class="order_heading">Email:</span><%= order.user.email_address%></p>
+            <p><span class="order_heading">Street Address:</span><%= order.user.street_address %></p>
+            <p><span class="order_heading">City:</span><%= order.user.city %></p>
+            <p><span class="order_heading">State:</span><%= order.user.state %></p>
+            <p><span class="order_heading">Zipcode:</span><%= order.user.zipcode %></p>
+          </div>
         </div>
       </div> <!--card-content-->
     </div> <!-- card-panel -->
