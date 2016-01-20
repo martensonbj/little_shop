@@ -17,8 +17,8 @@ class AdminUserCreatesItemTest < ActionDispatch::IntegrationTest
     fill_in "Image path", with: image_path
     fill_in "Price", with: "10"
     fill_in "Description", with: "Salad? That's what my food eats"
-    select "#{category1.name}", from: "item_category_id"
-    select "#{artist.first_name}", from: "item_user_id"
+    select category1.name, from: "item_category_id"
+    select artist.first_name, from: "item_user_id"
     click_on "Create Item"
 
     assert_equal item_path(Item.last), current_path
@@ -41,15 +41,15 @@ class AdminUserCreatesItemTest < ActionDispatch::IntegrationTest
     assert_equal new_admin_item_path, current_path
     fill_in "Title", with: "Meat"
     fill_in "Image path", with: image_path
-    fill_in "Price", with: "100,000"
+    fill_in "Price", with: "$100,000"
     fill_in "Description", with: "Salad? That's what my food eats"
-    select "#{category1.name}", from: "item_category_id"
-    select "#{artist.first_name}", from: "item_user_id"
+    select category1.name, from: "item_category_id"
+    select artist.first_name, from: "item_user_id"
     click_on "Create Item"
 
     assert_equal item_path(Item.last), current_path
     assert_equal 1, Item.count
     assert page.has_content? Item.last.price
-    assert page.has_content? artist.full_name
+    assert_equal 100000, Item.last.price
   end
 end
