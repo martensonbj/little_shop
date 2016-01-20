@@ -7,6 +7,7 @@ require "rails/test_help"
 require "capybara/rails"
 require "database_cleaner"
 require "mocha/mini_test"
+require "stripe_mock"
 
 DatabaseCleaner.strategy = :truncation
 

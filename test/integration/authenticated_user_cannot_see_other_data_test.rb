@@ -1,12 +1,5 @@
 require "test_helper"
 
-# Background: An authenticated user and the ability to add an admin user
-#
-# As an Authenticated User
-# I cannot view another user's private data (current or past orders, etc)
-# I cannot view the administrator screens or use admin functionality
-# I cannot make myself an admin
-
 class AuthenticatedUserCannotSeeOtherDataTest < ActionDispatch::IntegrationTest
   test "an authenticated user cannot see admin or other users data" do
     user1 = create(:user)

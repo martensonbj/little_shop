@@ -16,6 +16,12 @@ class UserChecksOutFromCartTest < ActionDispatch::IntegrationTest
       click_button "Login"
     end
 
+    StripeMock.start
+    Stripe::Customer.create(
+      email: user.email_address,
+      card: "4242424242424242"
+    )
+
     visit cart_path
     click_button "Checkout"
 
@@ -34,6 +40,12 @@ class UserChecksOutFromCartTest < ActionDispatch::IntegrationTest
     add_items_to_cart_and_visit_shopping_cart(2)
     user = create(:user)
     ApplicationController.any_instance.stubs(:current_user).returns(user)
+
+    StripeMock.start
+    Stripe::Customer.create(
+      email: user.email_address,
+      card: "4242424242424242"
+    )
 
     visit cart_path
     click_button "Checkout"

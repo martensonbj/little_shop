@@ -1,3 +1,11 @@
+/* STRIPE -- DO NOT DELETE!!!! */
+
+button.stripe-button-el span {
+  display: none !important;
+}
+
+/* END OF STRIPE -- DO NOT DELETE!!!! */
+
 img {
   max-width: 100%;
 }
