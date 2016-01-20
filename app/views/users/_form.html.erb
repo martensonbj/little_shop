@@ -55,6 +55,10 @@
     <%= f.label :role %>
     <%= f.select :role, options_for_select(["default", "artist", "admin"], selected: "admin") %>
     <br>
+  <% elsif current_artist? %>
+    <%= f.label :role %>
+    <%= f.select :role, options_for_select(["artist"], selected: "artist") %>
+    <br>
   <% elsif current_user %>
     <%= f.label :role %>
     <%= f.select :role, options_for_select(["default", "artist"], selected: current_user.role) %>
