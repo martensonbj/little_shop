@@ -39,6 +39,11 @@ select {
   display: block;
 }
 
+nav .brand-logo {
+  color: #eee;
+  margin-left: 10px;
+}
+
 nav .nav-wrapper {
   background-color: #507D80;
 }
@@ -117,12 +122,12 @@ nav ul a:hover {
   padding-top: 20px;
 }
 
-.landing_page {
+/*.landing_page {
   background-image: url('bg2.jpg');
   background-size: cover;
   background-repeat:no-repeat;
   height: 100vh;
-}
+}*/
 
 .error {
   background-color: red
@@ -373,6 +378,16 @@ textarea.materialize-textarea {
 .user_action_links .action_box a:hover {
     color: #6C8672 !important;
     background-color: #C4D4AF;
+}
+
+/***** SLIDER *****/
+
+.slider.fullscreen {
+  margin-top: 62px;
+}
+
+.slider .slides li .caption {
+  top: -10%;
 }
 
 @media screen only and (max-width: 990px) {
