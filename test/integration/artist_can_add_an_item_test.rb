@@ -18,7 +18,7 @@ class ArtistCanAddAnItemTest < ActionDispatch::IntegrationTest
     fill_in "Image path", with: image_path
     fill_in "Price", with: "10"
     fill_in "Description", with: "Salad? That's what my food eats"
-    select "#{category.name}", from: "item_category_id"
+    select category.name, from: "item_category_id"
     click_on "Create Item"
 
     item = Item.last
@@ -55,7 +55,7 @@ class ArtistCanAddAnItemTest < ActionDispatch::IntegrationTest
     fill_in "Image path", with: image_path
     fill_in "Price", with: "$100,000"
     fill_in "Description", with: "Salad? That's what my food eats"
-    select "#{category.name}", from: "item_category_id"
+    select category.name, from: "item_category_id"
     click_on "Create Item"
 
     assert_equal item_path(Item.last), current_path
