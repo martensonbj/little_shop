@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    render :layout => 'home'
+    render layout: "home"
   end
 end
