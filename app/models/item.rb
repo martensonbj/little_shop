@@ -23,6 +23,9 @@ class Item < ActiveRecord::Base
 
   enum status: %w(inactive active)
 
+  def default_image?
+    image_path == "https://www.weefmgrenada.com/images/na4.jpg"
+  end
   private
 
   def check_user_type
@@ -32,5 +35,9 @@ class Item < ActiveRecord::Base
   def check_image_path
     photo_not_available = "https://www.weefmgrenada.com/images/na4.jpg"
     self.image_path = photo_not_available if image_path.nil? || image_path.empty?
+
+    if image_path == photo_not_available
+      self.status = "inactive"
+    end
   end
 end
