@@ -62,7 +62,7 @@ class ItemsController < ApplicationController
   end
 
   def sanitize_price(price)
-    price.to_s.gsub!(/\D/, "").to_i
+    price.to_s.gsub!(",", "").to_i
   end
 
   def require_artist
