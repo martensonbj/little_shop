@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
     if @user.save
       session[:user_id] = @user.id
       redirect_to dashboard_path
@@ -28,6 +29,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    render file: "public/404" unless user_slug_is_current_user
   end
 
   def update
@@ -63,5 +65,9 @@ class UsersController < ApplicationController
                                  :role,
                                  :slug,
                                  :file_upload)
+  end
+
+  def user_slug_is_current_user
+    current_user.slug == params[:slug]
   end
 end

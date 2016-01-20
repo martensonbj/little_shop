@@ -45,4 +45,16 @@ class UserCanEditTheirInfoTest < ActionDispatch::IntegrationTest
 
     assert page.has_content? "Incorrect user information"
   end
+
+  test "user cannot visit edit page for another user" do
+    user1 = create(:user)
+    user2 = create(:user)
+
+    ApplicationController.any_instance.stubs(:current_user).returns(user1)
+
+    visit edit_user_path(user2)
+
+    message_404 = "The page you were looking for doesn't exist (404)"
+    assert page.has_content? message_404
+  end
 end
