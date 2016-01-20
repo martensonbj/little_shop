@@ -9,31 +9,31 @@
   <div class="col m6 s12">
     <h4><%= @item.title %></h4> by <br>
     <h5><%= @item.user.full_name %></h5>
-    <p>$<%= @item.price %></p>
-    <p><%= @item.description %></p>
+    <p class="larger-text">$<%= @item.price %></p>
+    <p class="larger-text"><%= @item.description %></p>
 
     <% if current_admin? %>
       <% if @item.active? %>
-        <p class="light-green-text text-accent-4">Status: <%= @item.status %></p>
+        <p class="active_status_text text-accent-4 larger-text">Status: <%= @item.status %></p>
       <% else %>
-        <p class="grey-text">Status: <%= @item.status %></p>
+        <p class="inactive_status_text larger-text">Status: <%= @item.status %></p>
       <% end %>
 
       <br>
-      <%= link_to "Edit", edit_admin_item_path(@item), class: "btn waves-effect waves-light light-blue darken-2"%>
-      <%= link_to "Delete", admin_item_path(@item), method: :delete,  class: "btn waves-effect waves-light red darken-4"%>
+      <%= link_to "Edit", edit_admin_item_path(@item), class: "btn waves-effect waves-light btn_edit"%>
+      <%= link_to "Delete", admin_item_path(@item), method: :delete,  class: "btn waves-effect waves-light btn_delete"%>
 
     <% elsif current_artist? && artist_owns_item?(@item) %>
       <% if @item.active? %>
-        <p class="light-green-text text-accent-4">Status: <%= @item.status %></p>
+        <p class="active_status_text active_status_text larger-text">Status: <%= @item.status %></p>
       <% else %>
-        <p class="grey-text">Status: <%= @item.status %></p>
+        <p class="inactive_status_text larger-text">Status: <%= @item.status %></p>
       <% end %>
 
       <br>
-      <%= link_to "Edit", edit_user_item_path(current_user, @item), class: "btn waves-effect waves-light light-blue darken-2"%>
+      <%= link_to "Edit", edit_user_item_path(current_user, @item), class: "btn waves-effect waves-light btn_edit"%>
       <br>
-      <%= link_to "Delete", item_path(@item), method: :delete,  class: "btn waves-effect waves-light red darken-4"%>
+      <%= link_to "Delete", item_path(@item), method: :delete,  class: "btn waves-effect waves-light btn_delete"%>
     <% end %>
 
     <% if @item.active? %>
@@ -41,7 +41,7 @@
     <% elsif @item.default_image? %>
       <p class="red-text">This item is inactive. <br> Please upload an image to change status.</p>
     <% else %>
-      <p class="red-text">This item is inactive.</p>
+      <p class="pink_error_text">This item is inactive.</p>
     <% end %>
   </div>
 </div>

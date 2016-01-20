@@ -1,0 +1,15 @@
+<div class = "landing_buttons">
+  <h1 class = "home_title">RoughSketch</h1>
+  <div class="btn btn_landing_page index_button" id="browse_artist_button">
+    <%= link_to "Browse by Artist", artists_path, class: "waves-effect waves-light" %>
+  </div>
+
+  <div class="btn btn_landing_page index_button" id="browse_cat_button">
+    <%= link_to "Browse by Category", categories_path, class: "waves-effect waves-light" %>
+  </div>
+  <br>
+
+  <div class="btn btn_landing_page index_button" id="create_acct_button">
+    <%= link_to "Create Account", new_user_path, class: "waves-effect waves-light" %>
+  </div>
+</div>

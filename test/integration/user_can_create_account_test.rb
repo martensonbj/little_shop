@@ -9,7 +9,7 @@ class UserCanCreateAccountTest < ActionDispatch::IntegrationTest
     visit "/"
     assert page.has_content?("Login")
 
-    click_link_or_button "Create Account"
+    first(:link, "Create Account").click
     assert_equal new_user_path, current_path
 
     fill_in "First name", with: "Brenna"

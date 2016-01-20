@@ -4,8 +4,13 @@
   <br>
 
   <%= f.label :image_path %>
-  <%= f.text_field :image_path %>
+  <%= f.text_field :image_path, placeholder: "Do not fill out this field if you are uploading an image" %>
   <br>
+
+  <%= f.label :file_upload %>
+  <br><br>
+  <%= f.file_field :file_upload, class: "upload_file grey-text" %>
+  <br><br>
 
   <%= f.label :price %>
   <%= f.text_field :price %>
@@ -30,8 +35,8 @@
   <br>
 
   <%= f.label :description %>
-  <%= f.text_area :description %>
+  <%= f.text_area :description, class: "larger-text" %>
   <br>
 
-  <%= f.submit class: "waves-effect waves-light btn green accent-4" %>
+  <%= f.submit class: "waves-effect waves-light btn " %>
 <% end %>
