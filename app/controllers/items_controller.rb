@@ -38,8 +38,8 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to @item
     else
-      render :new
       flash[:error] = "All fields must be filled in."
+      render :new
     end
   end
 
