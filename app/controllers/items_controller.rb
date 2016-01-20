@@ -61,10 +61,6 @@ class ItemsController < ApplicationController
                                  :file_upload)
   end
 
-  def sanitize_price(price)
-    price.to_s.gsub!(/\D/, "").to_i
-  end
-
   def require_artist
     render file: "/public/404" unless current_artist?
   end

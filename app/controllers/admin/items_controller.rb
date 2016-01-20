@@ -8,10 +8,11 @@ class Admin::ItemsController < Admin::BaseController
   end
 
   def create
-    item = Item.new(item_params)
+    sanitize_price(params[:item][:price])
+    @item = Item.new(item_params)
 
-    if item.save
-      redirect_to item
+    if @item.save
+      redirect_to @item
     else
       flash.now[:alert] = "Incomplete form"
       render :new
@@ -27,10 +28,11 @@ class Admin::ItemsController < Admin::BaseController
   end
 
   def update
-    item = Item.find(params[:id])
+    sanitize_price(params[:item][:price])
+    @item = Item.find(params[:id])
 
-    if item.update(item_params)
-      redirect_to admin_item_path(item)
+    if @item.update(item_params)
+      redirect_to admin_item_path(@item)
     else
       render :new
       flash[:alert] = "All fields must be filled in."
