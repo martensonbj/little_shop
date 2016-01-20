@@ -20,7 +20,7 @@ h1.home_title {
     position: relative;
     top: -85px;
     letter-spacing: 1.2rem;
-    color: #cccccc;
+    color: #fff;
     text-shadow: 3px 5px 10px #000000;
 }
 
@@ -44,8 +44,15 @@ a:hover {
 
 /* NAVBAR */
 
+nav .brand-logo {
+  color: #fff;
+  margin-left: 20px;
+  font-family: 'Rock Salt', curisve;
+  font-size: 20px;
+}
+
 nav .nav-wrapper {
-  background-color: #507D80;
+  background-color: #494856;
 }
 
 nav ul a {
@@ -122,12 +129,12 @@ nav ul a:hover {
   padding-top: 20px;
 }
 
-.landing_page {
+/*.landing_page {
   background-image: url('bg2.jpg');
   background-size: cover;
   background-repeat:no-repeat;
   height: 100vh;
-}
+}*/
 
 .error {
   background-color: red
@@ -143,7 +150,7 @@ nav ul a:hover {
 }
 
 .btn_landing_page.index_button {
-  background-color: rgba(104, 168, 173, 0.7)!important;
+  background-color: rgba(73, 72, 86, 0.8)!important;
   height: 70px!important;
   padding: 0px;
 }
@@ -400,8 +407,17 @@ select {
   font-size: 20px;
 }
 
-/* MEDIA QUERIES */
+/***** SLIDER *****/
 
+.slider.fullscreen {
+  margin-top: 62px;
+}
+
+.slider .slides li .caption {
+  top: -10%;
+}
+
+/* MEDIA QUERIES */
 @media screen only and (max-width: 990px) {
   .brand-logo {
     position: absolute;
