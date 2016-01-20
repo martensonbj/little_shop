@@ -34,13 +34,21 @@ class Admin::ItemsController < Admin::BaseController
     if @item.update(item_params)
       redirect_to admin_item_path(@item)
     else
-      render :new
       flash[:alert] = "All fields must be filled in."
+      render :new
     end
   end
 
   def destroy
-    Item.find(params[:id]).destroy
+    @item = Item.find(params[:id])
+
+    if @item.orders.empty?
+      @item.destroy
+    else
+      flash[:error] = "Cannot delete an item that has been ordered." \
+                      " Suggest making it inactive instead."
+    end
+
     redirect_to admin_items_path
   end
 

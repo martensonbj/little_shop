@@ -6,10 +6,4 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all.includes(:items)
   end
-
-  private
-
-  def category_params
-    params.require(:category).permit(:name, :slug)
-  end
 end

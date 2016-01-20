@@ -83,7 +83,7 @@ FactoryGirl.define do
     n
   end
 
-  sequence :name, %w(a b c).cycle do |n|
+  sequence :name, %w(a b c d e f g h i).cycle do |n|
     "name#{n}"
   end
 

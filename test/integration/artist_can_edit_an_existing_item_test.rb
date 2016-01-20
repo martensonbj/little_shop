@@ -76,4 +76,20 @@ class ArtistCanEditAnExistingItemTest < ActionDispatch::IntegrationTest
     message_404 = "The page you were looking for doesn't exist (404)"
     assert page.has_content?(message_404)
   end
+
+  test "artist cannot leave required fields blank when editing an item" do
+    artist = create(:artist)
+    item = create(:item)
+    artist.items << item
+
+    ApplicationController.any_instance.stubs(:current_user).returns(artist)
+
+    visit artist_path(artist)
+    click_on "Edit"
+
+    fill_in "Title", with: ""
+    click_on "Update Item"
+
+    assert page.has_content? "All fields must be filled in."
+  end
 end
