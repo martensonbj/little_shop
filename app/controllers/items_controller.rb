@@ -45,7 +45,14 @@ class ItemsController < ApplicationController
 
   def destroy
     @item = Item.find(params[:id])
-    @item.destroy
+
+    if @item.orders.empty?
+      @item.destroy
+    else
+      flash[:error] = "Cannot delete an item that has been ordered." \
+                      " Suggest making it inactive instead."
+    end
+
     redirect_to items_path
   end
 

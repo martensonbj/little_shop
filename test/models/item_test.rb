@@ -112,4 +112,15 @@ class ItemTest < ActiveSupport::TestCase
     assert_equal 1, artist.items.count
     assert_equal photo_not_available, artist.items.last.image_path
   end
+
+  test "can filter by active items only" do
+    item1 = create(:item)
+    item2 = create(:item)
+    item2.inactive!
+
+    assert item1.active?
+    refute item2.active?
+
+    assert_equal 1, Item.active.count
+  end
 end
