@@ -8,6 +8,15 @@ img {
   max-width: 100%;
 }
 
+h1.home_title {
+    font-family: 'Rock Salt', cursive;
+    position: relative;
+    top: -85px;
+    letter-spacing: 1.2rem;
+    color: #cccccc;
+    text-shadow: 3px 5px 10px #000000;
+}
+
 h2 {
     font-size: 5rem;
     letter-spacing: 1.1rem;
@@ -31,7 +40,7 @@ select {
 }
 
 nav .nav-wrapper {
-  background-color: #6C8672;
+  background-color: #507D80;
 }
 
 nav ul a {
@@ -40,7 +49,7 @@ nav ul a {
 
 nav ul a:hover {
     background-color: rgba(0,0,0,0.1);
-    color: #fff;
+    color: #ddd;
 }
 
 /* ORDERS */
