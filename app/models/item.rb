@@ -1,4 +1,6 @@
 class Item < ActiveRecord::Base
+  before_save :check_user_type
+  before_save :check_image_path
   belongs_to :user
   belongs_to :category
   has_attached_file :file_upload,
@@ -16,9 +18,6 @@ class Item < ActiveRecord::Base
   validates :price, presence: true,
                     numericality: { greater_than: 0 }
   validates :description, presence: true
-
-  before_save :check_user_type
-  before_save :check_image_path
 
   scope :active, -> { where(status: 1) }
 

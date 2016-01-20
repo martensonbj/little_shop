@@ -16,12 +16,13 @@ class ItemsController < ApplicationController
   end
 
   def create
-    item = current_user.items.new(item_params)
+    sanitize_price(params[:item][:price])
+    @item = current_user.items.new(item_params)
 
-    if item.save
-      redirect_to item
+    if @item.save
+      redirect_to @item
     else
-      flash.now[:alert] = "Incomplete form"
+      flash.now[:error] = "Incomplete form"
       render :new
     end
   end
@@ -31,13 +32,14 @@ class ItemsController < ApplicationController
   end
 
   def update
-    item = Item.find(params[:id])
+    sanitize_price(params[:item][:price])
+    @item = Item.find(params[:id])
 
-    if item.update(item_params)
-      redirect_to item
+    if @item.update(item_params)
+      redirect_to @item
     else
       render :new
-      flash[:alert] = "All fields must be filled in."
+      flash[:error] = "All fields must be filled in."
     end
   end
 
@@ -57,6 +59,10 @@ class ItemsController < ApplicationController
                                  :category_id,
                                  :status,
                                  :file_upload)
+  end
+
+  def sanitize_price(price)
+    price.to_s.gsub!(/\D/, "").to_i
   end
 
   def require_artist
