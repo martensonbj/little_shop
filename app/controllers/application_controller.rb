@@ -25,4 +25,8 @@ class ApplicationController < ActionController::Base
   def artist_owns_item?(item)
     item.user.id == current_user.id
   end
+
+  def sanitize_price(price)
+    price.to_s.gsub!(/[,$]/, "").to_i
+  end
 end
