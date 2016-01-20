@@ -38,8 +38,8 @@ class UsersController < ApplicationController
         redirect_to dashboard_path
       end
     else
-      render :edit
       flash.now[:error] = "Incorrect user information"
+      render :edit
     end
   end
 
