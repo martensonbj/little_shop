@@ -4,6 +4,13 @@
 PURPLY #737495
  PINK #F17D80 */
 
+
+/* MAIN STYLES */
+
+p {
+  font-size: 20px;
+}
+
 img {
   max-width: 100%;
 }
@@ -35,9 +42,7 @@ a:hover {
   color: #C4D4AF;
 }
 
-select {
-  display: block;
-}
+/* NAVBAR */
 
 nav .nav-wrapper {
   background-color: #507D80;
@@ -88,7 +93,7 @@ nav ul a:hover {
 .remove-item-button {
   font-size: 14px;
   position: relative;
-  top: -56px;
+  top: -62px;
   left: 150px;
 }
 
@@ -158,7 +163,6 @@ nav ul a:hover {
   color: #C4D4AF;
 }
 
-/* BUTTONS */
 .btn {
   margin: 3px;
   background-color: #6C8672!important;
@@ -213,6 +217,8 @@ nav ul a:hover {
   color: #F17D80;
 }
 
+/* MASONRY */
+
 .grid-item {
   width: 315px;
 }
@@ -220,6 +226,8 @@ nav ul a:hover {
 .grid {
   margin: 0 auto;
 }
+
+/* CARDS */
 
 .card-title {
   opacity: 0.8;
@@ -233,7 +241,7 @@ font-size: 40px
   margin-right: 0;
 }
 
-/* Flash Messages */
+/* FLASH MESSAGES */
 
 .flash_success {
   background-color: #ccff90;
@@ -335,14 +343,27 @@ textarea.materialize-textarea {
   text-align: center;
 }
 
+.upload_file {
+  padding-left: 110px;
+}
+
+select {
+  display: block;
+  font-size: 20px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+
 /***** SIDE NAV ******/
 
 .side-nav {
-  background-color: rgba(0,0,0,0.7)
+  background-color: rgba(0,0,0,0.7);
 }
 
 .side-nav a {
   color: #7E8D94;
+  font-size: 15.5px;
 }
 
 .side-nav a:hover {
@@ -374,6 +395,12 @@ textarea.materialize-textarea {
     color: #6C8672 !important;
     background-color: #C4D4AF;
 }
+
+.larger-text {
+  font-size: 20px;
+}
+
+/* MEDIA QUERIES */
 
 @media screen only and (max-width: 990px) {
   .brand-logo {

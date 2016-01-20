@@ -9,12 +9,13 @@
   <%= f.text_field :last_name %>
   <br>
 
-<div class="row">
-  <% if current_artist? %>
-  <%= f.label "Upload Profile Picture" %>
-  <%= f.file_field :file_upload, class: "upload_file" %>
-  <% end %>
-</div>
+  <div class="row">
+    <% if current_artist? %>
+    <%= f.label "Upload Profile Picture" %>
+    <br><br>
+    <%= f.file_field :file_upload, class: "upload_file grey-text" %>
+    <% end %>
+  </div>
 
   <%= f.label :email_address %>
   <%= f.text_field :email_address %>

@@ -9,14 +9,14 @@
   <div class="col m6 s12">
     <h4><%= @item.title %></h4> by <br>
     <h5><%= @item.user.full_name %></h5>
-    <p>$<%= @item.price %></p>
-    <p><%= @item.description %></p>
+    <p class="larger-text">$<%= @item.price %></p>
+    <p class="larger-text"><%= @item.description %></p>
 
     <% if current_admin? %>
       <% if @item.active? %>
-        <p class="active_status_text text-accent-4">Status: <%= @item.status %></p>
+        <p class="active_status_text text-accent-4 larger-text">Status: <%= @item.status %></p>
       <% else %>
-        <p class="inactive_status_text">Status: <%= @item.status %></p>
+        <p class="inactive_status_text larger-text">Status: <%= @item.status %></p>
       <% end %>
 
       <br>
@@ -25,9 +25,9 @@
 
     <% elsif current_artist? && artist_owns_item?(@item) %>
       <% if @item.active? %>
-        <p class="active_status_text active_status_text">Status: <%= @item.status %></p>
+        <p class="active_status_text active_status_text larger-text">Status: <%= @item.status %></p>
       <% else %>
-        <p class="inactive_status_text">Status: <%= @item.status %></p>
+        <p class="inactive_status_text larger-text">Status: <%= @item.status %></p>
       <% end %>
 
       <br>
