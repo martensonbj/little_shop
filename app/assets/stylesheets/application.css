@@ -16,7 +16,7 @@ PURPLY #737495
 /* MAIN STYLES */
 
 p {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 img {
@@ -412,7 +412,7 @@ select {
 }
 
 .larger-text {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 /***** SLIDER *****/
@@ -434,7 +434,7 @@ select {
 
 @media screen and (max-width: 730px) {
   h1.home_title {
-    font-size: 32px;
+    font-size: 20px;
   }
 
   #create_acct_button {
@@ -444,5 +444,12 @@ select {
   #browse_artist_button,
   #browse_cat_button {
     margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  h1.home_title {
+    position: relative;
+    left: -12px;
   }
 }
