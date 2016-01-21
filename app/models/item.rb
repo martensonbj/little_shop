@@ -42,7 +42,7 @@ class Item < ActiveRecord::Base
 
     if default_image? && file_upload_file_name
       self.image_path = ""
-      self.status = "active"
+      self.status = "active" unless status == "inactive"
     elsif default_image?
       self.status = "inactive"
     end
