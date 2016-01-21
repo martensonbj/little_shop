@@ -137,13 +137,6 @@ nav ul a:hover {
   padding-top: 20px;
 }
 
-/*.landing_page {
-  background-image: url('bg2.jpg');
-  background-size: cover;
-  background-repeat:no-repeat;
-  height: 100vh;
-}*/
-
 .error {
   background-color: red
 }
@@ -235,7 +228,7 @@ nav ul a:hover {
 /* MASONRY */
 
 .grid-item {
-  width: 315px;
+  width: 295px;
 }
 
 .grid {
