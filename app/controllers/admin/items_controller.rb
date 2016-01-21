@@ -61,6 +61,7 @@ class Admin::ItemsController < Admin::BaseController
                                  :description,
                                  :category_id,
                                  :user_id,
-                                 :status)
+                                 :status,
+                                 :file_upload)
   end
 end
