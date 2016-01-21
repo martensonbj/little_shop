@@ -138,11 +138,7 @@ nav ul a:hover {
 }
 
 .error {
-  background-color: red
-}
-
-.error {
-  background-color: red
+  color: rgba(196, 42, 32, 0.8);
 }
 
 .landing_buttons {
@@ -427,7 +423,7 @@ select {
 
 @media screen and (max-width: 730px) {
   h1.home_title {
-    font-size: 20px;
+    font-size: 36px;
   }
 
   #create_acct_button {
@@ -440,9 +436,88 @@ select {
   }
 }
 
+@media screen and (max-width: 550px) {
+  h2 {
+    font-size: 40px;
+  }
+  h1.home_title {
+    font-size: 20px;
+  }
+
+  #create_acct_button {
+    width: 213px;
+  }
+
+  #browse_artist_button,
+  #browse_cat_button {
+    margin-bottom: 20px;
+  }
+
+  select {
+    width: 190px;
+    font-size: 16px;
+  }
+
+  input {
+    font-size: 16px;
+  }
+
+  .artist_thumb {
+    float: left;
+  }
+
+  .upload_file {
+    padding-left: 0;
+  }
+
+  #item_image_path {
+    font-size: 12px;
+  }
+
+  h5 {
+    font-size: 16px;
+  }
+
+  table a,
+  table tr {
+    font-size: 14px;
+  }
+}
+
 @media screen and (max-width: 475px) {
   h1.home_title {
     position: relative;
     left: -12px;
+  }
+}
+
+@media only screen and (max-width: 500px) and (orientation: landscape) {
+  h1.home_title {
+    font-size: 15px;
+    left: 10px;
+    margin-bottom: -60px;
+  }
+
+  .landing_buttons {
+    top: 100px;
+  }
+
+  #browse_artist_button,
+  #browse_cat_button,
+  #create_acct_button {
+    height: 50px !important;
+    line-height: 11px;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  h1.home_title {
+    font-size: 15px;
+    left: -18px;
+    margin-bottom: -40px;
+  }
+
+  .landing_buttons {
+    top: 180px;
   }
 }

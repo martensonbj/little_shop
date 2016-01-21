@@ -1,16 +1,16 @@
 <h2>All Orders</h2>
 <div class="col s12 m12">
   <div id= "totals" class="row center-align">
-    <div class="col s3 status_ordered">
+    <div class="col s6 m3 status_ordered">
       <h5>Ordered: <%= @orders.count_of_ordered %></h5>
     </div>
-    <div class="col s3 status_paid">
+    <div class="col s6 m3 status_paid">
       <h5>Paid: <%= @orders.count_of_paid %></h5>
     </div>
-    <div class="col s3 status_completed">
+    <div class="col s6 m3 status_completed">
       <h5>Completed: <%= @orders.count_of_completed %></h5>
     </div>
-    <div class="col s3 status_cancelled">
+    <div class="col s6 m3 status_cancelled">
       <h5>Cancelled: <%= @orders.count_of_cancelled %></h5>
     </div>
   </div>
@@ -22,7 +22,7 @@
 
   <div class="card-panel blue-grey lighten-5">
 
-    <table class="highlight larger-text">
+    <table class="highlight larger-text responsive-table">
       <thead>
         <tr>
           <th>Order ID</th>
